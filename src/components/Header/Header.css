@@ -1,0 +1,49 @@
+.header {
+  align-items: center;
+  display: grid;
+  grid-template-areas:
+    "logo logo nav"
+    "search search search";
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.logo {
+  display: flex;
+  grid-area: logo;
+}
+
+.logo__image {
+  display: none;
+}
+
+.logo__name {
+  font-size: 1.5rem;
+}
+
+.search {
+  width: -webkit-fill-available;
+  grid-area: search;
+}
+
+.search__input {
+  padding: 12px;
+  width: 80%;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+@media screen and (min-width: 769px) {
+  .header {
+    grid-template-areas: "logo search search search nav";
+  }
+
+  .search {
+    width: -webkit-fill-available;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+}
