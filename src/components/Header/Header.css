@@ -5,7 +5,7 @@
     "logo logo nav"
     "search search search";
   justify-content: space-between;
-  padding: 12px 40px 12px 24px;
+  padding: 12px 12px 12px 24px;
 }
 
 .logo {
@@ -24,6 +24,7 @@
 .search {
   width: -webkit-fill-available;
   grid-area: search;
+  padding-right: 12px;
 }
 
 .search__input {
@@ -54,6 +55,7 @@
   }
 
   .search {
+    padding-right: 0;
     width: -webkit-fill-available;
   }
 }
