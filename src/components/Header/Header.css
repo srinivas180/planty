@@ -35,6 +35,19 @@
   grid-area: nav;
 }
 
+.nav__link {
+  color: black;
+  font-weight: 500;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.nav__link:hover {
+  background-color: var(--secondary);
+  border-radius: 8px;
+  color: var(--primary);
+}
+
 @media screen and (min-width: 769px) {
   .header {
     grid-template-areas: "logo search search search nav";

@@ -24,9 +24,9 @@ function Search() {
 function Nav() {
     return (
         <nav className="nav">
-            <NavLink>Login</NavLink>
-            <NavLink>Wishlist</NavLink>
-            <NavLink>Cart</NavLink>
+            <NavLink className="nav__link">Login</NavLink>
+            <NavLink className="nav__link">Wishlist</NavLink>
+            <NavLink className="nav__link">Cart</NavLink>
         </nav>
     );
 }
