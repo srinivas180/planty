@@ -5,7 +5,7 @@
     "logo logo nav"
     "search search search";
   justify-content: space-between;
-  padding: 12px;
+  padding: 12px 40px 12px 24px;
 }
 
 .logo {
