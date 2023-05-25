@@ -51,12 +51,21 @@
 
 @media screen and (min-width: 769px) {
   .header {
-    grid-template-areas: "logo search search search nav";
+    grid-template-areas: "logo logo search search search nav nav";
+  }
+
+  .logo {
+    justify-content: center;
   }
 
   .search {
     padding-right: 0;
     width: -webkit-fill-available;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: center;
   }
 }
 
