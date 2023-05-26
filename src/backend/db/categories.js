@@ -8,20 +8,42 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "Indoor Plants",
+    imageLink: "https://raw.githubusercontent.com/srinivas180/planty/main/src/images/categories/aglaonema-red-emerald-indoor.jpg",
+    altText: "aglaonema red emerald indoor plant",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "This plants grow under low sunlight and requires less maintenance.",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "Outdoor Plants",
+    imageLink: "https://raw.githubusercontent.com/srinivas180/planty/main/src/images/categories/adenium-white-double-flower-outdoor.jpg",
+    altText: "adenium white double flower outdoor plant",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "This plants grow under direct sunlight and requires you to water frequently.",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "Air Purifier Plants",
+    imageLink: "https://raw.githubusercontent.com/srinivas180/planty/main/src/images/categories/money-plant-air-purifier.jpg",
+    altText: "money plant",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "This plants requires very low sunlight, low maintenance and also purifies air.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Mosquito Repellent Plants",
+    imageLink: "https://raw.githubusercontent.com/srinivas180/planty/main/src/images/categories/lemon-balm-mosquito-repellent.jpg",
+    altText: "lemon balm plant",
+    description:
+      "This plants are great natural mosquito repellers.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Bonsai Plants",
+    imageLink: "https://raw.githubusercontent.com/srinivas180/planty/main/src/images/categories/azalea-bonsai.jpg",
+    altText: "azalea bonsai plant",
+    description:
+      "Bonsai trees are normal plants, but trained using sophisticated techniques to keep them miniature.",
   },
 ];
