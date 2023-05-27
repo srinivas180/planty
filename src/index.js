@@ -6,13 +6,17 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 
+import { CategoriesProvider } from "./contexts/CategoriesProvider"
+
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <CategoriesProvider>
+        <App />
+      </CategoriesProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
