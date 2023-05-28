@@ -14,7 +14,7 @@ export function Home() {
                 <ul className="categories__list">
                     {
                         categories?.map(category => 
-                            <Category category={category} />
+                            <Category key={category.id} category={category} />
                         )
                     }
                 </ul>
