@@ -1,0 +1,17 @@
+.products {
+  padding: 12px 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .products__list {
+    column-gap: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .products__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
