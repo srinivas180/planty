@@ -6,7 +6,8 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 
-import { CategoriesProvider } from "./contexts/CategoriesProvider"
+import { CategoriesProvider } from "./contexts/CategoriesProvider";
+import { ProductsProvider } from "./contexts/ProductsProvider";
 
 // Call make Server
 makeServer();
@@ -14,9 +15,11 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <CategoriesProvider>
-        <App />
-      </CategoriesProvider>
+      <ProductsProvider>
+        <CategoriesProvider>
+          <App />
+        </CategoriesProvider>
+      </ProductsProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
