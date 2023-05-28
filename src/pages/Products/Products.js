@@ -1,5 +1,7 @@
 import { useContext } from "react"
-import { ProductsContext } from "../../contexts/ProductsProvider"
+
+import { ProductsContext } from "../../contexts/ProductsProvider";
+import { Product } from "../../components/Product/Product";
 
 export function Products() {
     const { products } = useContext(ProductsContext);
@@ -10,10 +12,7 @@ export function Products() {
             <div className="products">
                 {
                     products.map(product => (
-                        <div className="product">
-                            <img className="product__image" src={product.imageLink} />
-                            <h3 className="prdudct__heading">{product.title}</h3>
-                        </div>
+                        <Product key={product.id} product={product} />
                     ))
                 }
             </div>
