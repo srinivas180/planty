@@ -1,3 +1,5 @@
+import "./Product.css";
+
 export function Product({ product }) {
     return (
         <div className="product">
