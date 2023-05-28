@@ -1,3 +1,13 @@
 .category__image {
+  border-radius: 20px;
   width: 100%;
+}
+
+.category__heading {
+  font-size: 1.4rem;
+  margin: 12px 0 8px 0;
+}
+
+.category__description {
+  margin: 0 0 32px 0;
 }
