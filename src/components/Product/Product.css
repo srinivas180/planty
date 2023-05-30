@@ -26,8 +26,8 @@
 }
 
 .product__button:hover {
-  background-color: var(--medium-green);
-  border: 1px solid var(--medium-green);
+  background-color: var(--primary);
+  color: white;
 }
 
 .product__button--primary {
