@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import "./Home.css";
-import { CategoriesContext } from "../../contexts/CategoriesProvider";
+import { CategoriesContext } from "../../contexts/CategoriesContext";
 import { Category } from "../../components/Category/Category";
 
 export function Home() {

@@ -6,8 +6,8 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 
-import { CategoriesProvider } from "./contexts/CategoriesProvider";
-import { ProductsProvider } from "./contexts/ProductsProvider";
+import { CategoriesProvider } from "./contexts/CategoriesContext";
+import { ProductsProvider } from "./contexts/ProductsContext";
 
 // Call make Server
 makeServer();
