@@ -1,13 +1,22 @@
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
+
 import "./Product.css";
 
 export function Product({ product }) {
+    const {dispatchCart} = useContext(CartContext);
+
+    function addToCart(item) {
+        dispatchCart({type: "ADD_TO_CART", item})
+    }
+
     return (
         <div className="product__item">
             <img className="product__image" src={product.imageLink} />
             <h3 className="prdudct__heading">{product.title}</h3>
             <div className="product__buttons">
                 <button className="product__button product__button--secondary">Add to wishlist</button>
-                <button className="product__button product__button--primary">Add to cart</button>
+                <button className="product__button product__button--primary" onClick={() => addToCart(product)}>Add to cart</button>
             </div>
         </div>
     )
