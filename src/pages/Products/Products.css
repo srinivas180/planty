@@ -25,6 +25,20 @@
   background-color: var(--secondary);
 }
 
+.filters__rating {
+  display: flex;
+  flex-direction: column;
+}
+
+.rating__label {
+  padding: 8px;
+}
+
+.rating__label:hover {
+  border-radius: 8px;
+  background-color: var(--secondary);
+}
+
 .products {
   width: 84%;
 }
