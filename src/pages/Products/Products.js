@@ -33,6 +33,34 @@ function CategoryFilter() {
     );
 }
 
+function RatingFilter() {
+    return (
+        <div className="filters__rating">
+            <h3 className="filters__heading">Rating</h3>
+            <label className="rating__label">
+                <input className="rating__input" type="radio" name="rating"/>
+                Indoor Plants
+            </label>
+            <label className="rating__label">
+                <input className="rating__input" type="radio" name="rating"/>
+                Outdoor Plants
+            </label>
+            <label className="rating__label">
+                <input className="rating__input" type="radio" name="rating"/>
+                Air Purifier Plants
+            </label>
+            <label className="rating__label">
+                <input className="rating__input" type="radio" name="rating"/>
+                Mosquito Repellent Plants
+            </label>
+            <label className="rating__label">
+                <input className="rating__input" type="radio" name="rating"/>
+                Bonsai Plants
+            </label>
+        </div>
+    );
+}
+
 export function Products() {
     const { products } = useContext(ProductsContext);
 
@@ -41,7 +69,7 @@ export function Products() {
             <div class="filters">
                 <h2>Filters</h2>
                 <CategoryFilter />
-
+                <RatingFilter />
             </div>
             <div className="products">
                 <h2>Products</h2>
