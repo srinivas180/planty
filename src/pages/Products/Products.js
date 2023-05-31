@@ -63,7 +63,7 @@ export function Products() {
 
     return (
         <div className="row container">
-            <div class="filters">
+            <div className="filters">
                 <h2>Filters</h2>
                 <CategoryFilter />
                 <RatingFilter />
