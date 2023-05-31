@@ -26,6 +26,24 @@
   background-color: var(--secondary);
 }
 
+.input__range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--primary);
+  height: 8px;
+  border-radius: 8px;
+}
+
+.input__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #04aa6d;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
 .products {
   width: 84%;
 }
