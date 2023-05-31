@@ -1,5 +1,23 @@
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.container {
+  max-width: 100%;
+}
+
+.filters {
+  width: 16%;
+}
+
 .products {
-  padding: 12px 24px;
+  width: 84%;
+}
+
+.filters__category {
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 768px) {
