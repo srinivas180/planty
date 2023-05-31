@@ -61,6 +61,22 @@ function RatingFilter() {
     );
 }
 
+function PriceSortFilter() {
+    return (
+        <div className="filters__container">
+            <h3 className="filters__heading">Sort By</h3>
+            <label className="filters__label">
+                <input className="filters__input" type="radio" name="rating"/>
+                Price - Low to High
+            </label>
+            <label className="filters__label">
+                <input className="filters__input" type="radio" name="rating"/>
+                Price - High to Low
+            </label>
+        </div>
+    );
+}
+
 export function Products() {
     const { products } = useContext(ProductsContext);
 
@@ -70,6 +86,7 @@ export function Products() {
                 <h2>Filters</h2>
                 <CategoryFilter />
                 <RatingFilter />
+                <PriceSortFilter />
             </div>
             <div className="products">
                 <h2>Products</h2>
