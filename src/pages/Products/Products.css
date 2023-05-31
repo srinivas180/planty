@@ -17,6 +17,7 @@
 }
 
 .filters__label {
+  cursor: pointer;
   padding: 8px;
 }
 
