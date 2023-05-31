@@ -8,17 +8,20 @@ import { makeServer } from "./server";
 
 import { CategoriesProvider } from "./contexts/CategoriesContext";
 import { ProductsProvider } from "./contexts/ProductsContext";
+import { CartProvider } from "./contexts/CartContext";
 
 // Call make Server
 makeServer();
 
 ReactDOM.render(
     <Router>
-      <ProductsProvider>
-        <CategoriesProvider>
-          <App />
-        </CategoriesProvider>
-      </ProductsProvider>
+      <CartProvider>
+        <ProductsProvider>
+          <CategoriesProvider>
+            <App />
+          </CategoriesProvider>
+        </ProductsProvider>
+      </CartProvider>
     </Router>,
   document.getElementById("root")
 );
