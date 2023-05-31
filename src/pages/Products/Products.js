@@ -37,26 +37,7 @@ function RatingFilter() {
     return (
         <div className="filters__container">
             <h3 className="filters__heading">Rating</h3>
-            <label className="filters__label">
-                <input className="filters__input" type="radio" name="rating"/>
-                Indoor Plants
-            </label>
-            <label className="filters__label">
-                <input className="filters__input" type="radio" name="rating"/>
-                Outdoor Plants
-            </label>
-            <label className="filters__label">
-                <input className="filters__input" type="radio" name="rating"/>
-                Air Purifier Plants
-            </label>
-            <label className="filters__label">
-                <input className="filters__input" type="radio" name="rating"/>
-                Mosquito Repellent Plants
-            </label>
-            <label className="filters__label">
-                <input className="filters__input" type="radio" name="rating"/>
-                Bonsai Plants
-            </label>
+            <input className="filters__input input__range" type="range" min="1" max="5" step="1" defaultValue="3"/>
         </div>
     );
 }
