@@ -11,30 +11,16 @@
   width: 16%;
 }
 
-.filters__category {
+.filters__container {
   display: flex;
   flex-direction: column;
 }
 
-.category__label {
+.filters__label {
   padding: 8px;
 }
 
-.category__label:hover {
-  border-radius: 8px;
-  background-color: var(--secondary);
-}
-
-.filters__rating {
-  display: flex;
-  flex-direction: column;
-}
-
-.rating__label {
-  padding: 8px;
-}
-
-.rating__label:hover {
+.filters__label:hover {
   border-radius: 8px;
   background-color: var(--secondary);
 }

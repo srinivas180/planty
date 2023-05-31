@@ -7,26 +7,26 @@ import "./Products.css"
 
 function CategoryFilter() {
     return (
-        <div className="filters__category">
+        <div className="filters__container">
             <h3 className="filters__heading">Category</h3>
-            <label className="category__label">
-                <input className="category__input" type="checkbox"/>
+            <label className="filters__label">
+                <input className="filters__input" type="checkbox"/>
                 Indoor Plants
             </label>
-            <label className="category__label">
-                <input className="category__input" type="checkbox"/>
+            <label className="filters__label">
+                <input className="filters__input" type="checkbox"/>
                 Outdoor Plants
             </label>
-            <label className="category__label">
-                <input className="category__input" type="checkbox"/>
+            <label className="filters__label">
+                <input className="filters__input" type="checkbox"/>
                 Air Purifier Plants
             </label>
-            <label className="category__label">
-                <input className="category__input" type="checkbox"/>
+            <label className="filters__label">
+                <input className="filters__input" type="checkbox"/>
                 Mosquito Repellent Plants
             </label>
-            <label className="category__label">
-                <input className="category__input" type="checkbox"/>
+            <label className="filters__label">
+                <input className="filters__input" type="checkbox"/>
                 Bonsai Plants
             </label>
         </div>
@@ -35,26 +35,26 @@ function CategoryFilter() {
 
 function RatingFilter() {
     return (
-        <div className="filters__rating">
+        <div className="filters__container">
             <h3 className="filters__heading">Rating</h3>
-            <label className="rating__label">
-                <input className="rating__input" type="radio" name="rating"/>
+            <label className="filters__label">
+                <input className="filters__input" type="radio" name="rating"/>
                 Indoor Plants
             </label>
-            <label className="rating__label">
-                <input className="rating__input" type="radio" name="rating"/>
+            <label className="filters__label">
+                <input className="filters__input" type="radio" name="rating"/>
                 Outdoor Plants
             </label>
-            <label className="rating__label">
-                <input className="rating__input" type="radio" name="rating"/>
+            <label className="filters__label">
+                <input className="filters__input" type="radio" name="rating"/>
                 Air Purifier Plants
             </label>
-            <label className="rating__label">
-                <input className="rating__input" type="radio" name="rating"/>
+            <label className="filters__label">
+                <input className="filters__input" type="radio" name="rating"/>
                 Mosquito Repellent Plants
             </label>
-            <label className="rating__label">
-                <input className="rating__input" type="radio" name="rating"/>
+            <label className="filters__label">
+                <input className="filters__input" type="radio" name="rating"/>
                 Bonsai Plants
             </label>
         </div>
