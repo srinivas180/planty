@@ -11,6 +11,15 @@
   width: 16%;
 }
 
+.category__label {
+  padding: 8px;
+}
+
+.category__label:hover {
+  border-radius: 8px;
+  background-color: var(--secondary);
+}
+
 .products {
   width: 84%;
 }

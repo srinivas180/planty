@@ -15,24 +15,24 @@ export function Products() {
 
                 <div className="filters__category">
                     <h3 className="filters__heading">Category</h3>
-                    <label>
-                        <input type="checkbox"/>
+                    <label className="category__label">
+                        <input className="category__input" type="checkbox"/>
                         Indoor Plants
                     </label>
-                    <label>
-                        <input type="checkbox"/>
+                    <label className="category__label">
+                        <input className="category__input" type="checkbox"/>
                         Outdoor Plants
                     </label>
-                    <label>
-                        <input type="checkbox"/>
+                    <label className="category__label">
+                        <input className="category__input" type="checkbox"/>
                         Air Purifier Plants
                     </label>
-                    <label>
-                        <input type="checkbox"/>
+                    <label className="category__label">
+                        <input className="category__input" type="checkbox"/>
                         Mosquito Repellent Plants
                     </label>
-                    <label>
-                        <input type="checkbox"/>
+                    <label className="category__label">
+                        <input className="category__input" type="checkbox"/>
                         Bonsai Plants
                     </label>
                 </div>
