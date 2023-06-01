@@ -21,3 +21,16 @@ html {
 body {
   font-family: "Roboto", sans-serif;
 }
+
+.button--secondary {
+  border: 1px solid var(--primary);
+  background-color: white;
+  border-radius: 8px;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.button--secondary:hover {
+  background-color: var(--primary);
+  color: white;
+}
