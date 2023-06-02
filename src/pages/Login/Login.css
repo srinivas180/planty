@@ -1,0 +1,46 @@
+.row--space-between {
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column--center {
+  align-items: center;
+}
+
+.form__heading {
+  font-size: 26px;
+  margin-bottom: 0;
+}
+
+.form {
+  gap: 24px;
+  margin-bottom: 16px;
+  width: 26%;
+}
+
+.form__input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid gray;
+}
+
+.form__navlink {
+  color: var(--primary);
+}
+
+.navlink--no-underline {
+  text-decoration: none;
+}
+
+.form__guest-login-button {
+  font-size: 16px;
+}
+
+.form__submit {
+  padding: 12px;
+  font-size: 18px;
+}
