@@ -4,9 +4,10 @@ import Mockman from "mockman-js"
 import "./App.css";
 import { Header } from "./components/Header/Header";
 import { Home } from "./pages/Home/Home";
+import { Login } from "./pages/Login/Login";
 import { Products } from "./pages/Products/Products";
 import { Cart } from "./pages/Cart/Cart";
-import { Wishlist } from "./pages/Wishlist/Wishlist"
+import { Wishlist } from "./pages/Wishlist/Wishlist";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
