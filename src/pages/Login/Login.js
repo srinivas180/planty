@@ -27,9 +27,14 @@ export function Login() {
                     <NavLink className="form__navlink navlink--no-underline">Forgot password</NavLink>
                 </div>
                 <button className="button--primary form__submit" type="submit">Login</button>
-                <button className="button--text form__guest-login-button" onClick={
-                    () => loginHandler(guesUserCredentials)
-                }>Login as Guest</button>
+                <button className="button--text form__guest-login-button" 
+                    onClick={
+                        (event) => {
+                            event.preventDefault();
+                            loginHandler(guesUserCredentials)
+                        }
+                    }
+                >Login as Guest</button>
             </form>
             <div>
                 Don't have account?
