@@ -9,19 +9,22 @@ import { makeServer } from "./server";
 import { CategoriesProvider } from "./contexts/CategoriesContext";
 import { ProductsProvider } from "./contexts/ProductsContext";
 import { CartProvider } from "./contexts/CartContext";
+import { WishlistProvider } from "./contexts/WishlistContext";
 
 // Call make Server
 makeServer();
 
 ReactDOM.render(
     <Router>
-      <CartProvider>
-        <ProductsProvider>
-          <CategoriesProvider>
-            <App />
-          </CategoriesProvider>
-        </ProductsProvider>
-      </CartProvider>
+      <WishlistProvider>
+        <CartProvider>
+          <ProductsProvider>
+            <CategoriesProvider>
+              <App />
+            </CategoriesProvider>
+          </ProductsProvider>
+        </CartProvider>
+      </WishlistProvider>
     </Router>,
   document.getElementById("root")
 );
