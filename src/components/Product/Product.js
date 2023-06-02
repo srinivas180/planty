@@ -4,11 +4,7 @@ import { CartContext } from "../../contexts/CartContext";
 import "./Product.css";
 
 export function Product({ product }) {
-    const {dispatchCart} = useContext(CartContext);
-
-    function addToCart(item) {
-        dispatchCart({type: "ADD_TO_CART", item})
-    }
+    const { addToCart } = useContext(CartContext);
 
     return (
         <div className="product__item">

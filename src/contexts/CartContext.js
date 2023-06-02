@@ -1,27 +1,28 @@
-import { createContext, useState, useReducer } from "react";
+import axios from "axios";
+import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
-function CartReducer(cart, action) {
-    switch(action.type) {
-        case "ADD_TO_CART":
-            return [...cart, action.item];
-        case "REMOVE_FROM_CART":
-            break;
-        case "INCREASE_QUANTITY":
-            break;
-        case "DECREASE_QUANTITY":
-            break;
-        default:
-            return cart;
-    }
-}
-
 export function CartProvider({ children }) {
-    const [cart, dispatchCart] = useReducer(CartReducer, []);
+    const [cart, setCart] = useState([]);
+
+    async function addToCart(product) {
+        const response = await fetch("api/user/cart", {
+            method: "POST",
+            headers: {
+                "authorization": localStorage.getItem("encodedToken"),
+            },
+            body: JSON.stringify({
+                product
+            }),
+        });
+        
+        const data = await response.json();
+        setCart(data.cart);
+    }
 
     return (
-        <CartContext.Provider value={{ cart, dispatchCart }}>
+        <CartContext.Provider value={{ cart, addToCart }}>
             { children }
         </CartContext.Provider>
     );
