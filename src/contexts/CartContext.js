@@ -24,7 +24,6 @@ export function CartProvider({ children }) {
     }
 
     async function removeFromCart(productId) {
-        console.log("product id", productId);
         const response = await fetch(`/api/user/cart/${productId}`, {
             method: "DELETE",
             headers: {
@@ -33,7 +32,6 @@ export function CartProvider({ children }) {
         });
         
         const data = await response.json();
-        console.log(data)
         setCart(data.cart);
     }
 
