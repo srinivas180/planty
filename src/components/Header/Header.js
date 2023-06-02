@@ -25,6 +25,7 @@ function Nav() {
     return (
         <nav className="nav">
             <NavLink className="nav__link" to="/login">Login</NavLink>
+            <NavLink className="nav__link" to="/products">Products</NavLink>
             <NavLink className="nav__link" to="/wishlist">Wishlist</NavLink>
             <NavLink className="nav__link" to="/cart">Cart</NavLink>
         </nav>
