@@ -12,13 +12,13 @@ export function AuthProvider({ children }) {
             body: JSON.stringify(userCredentials),
         });
     
-        const { encodedToken, user } = await response.json();
+        const { encodedToken, foundUser } = await response.json();
         
         localStorage.setItem("encodedToken", encodedToken);
         localStorage.setItem("user", user);
         
         setEncodedToken(encodedToken);
-        setUser(user);
+        setUser(foundUser);
     }
 
     return (
