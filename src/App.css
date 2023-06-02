@@ -44,3 +44,10 @@ body {
   background-color: var(--primary);
   color: white;
 }
+
+.button--text {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  color: var(--primary);
+}
