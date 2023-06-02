@@ -1,16 +1,18 @@
-import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
+
+import { AuthContext } from "./AuthContext";
 
 export const CartContext = createContext();
 
 export function CartProvider({ children }) {
     const [cart, setCart] = useState([]);
+    const { encodedToken } = useContext(AuthContext);
 
     async function addToCart(product) {
         const response = await fetch("api/user/cart", {
             method: "POST",
             headers: {
-                "authorization": localStorage.getItem("encodedToken"),
+                "authorization": encodedToken,
             },
             body: JSON.stringify({
                 product
