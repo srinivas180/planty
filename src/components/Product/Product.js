@@ -11,7 +11,10 @@ export function Product({ product }) {
     return (
         <div className="product__item">
             <img className="product__image" src={product.imageLink} />
-            <h3 className="prdudct__heading">{product.title}</h3>
+            <div className="product__head">
+                <h3 className="product__heading">{product.title}</h3>
+                <span className="product__price">₹{product.price}</span>
+            </div>
             <div className="product__buttons">
                 <button className="product__button product__button--secondary" onClick={() => addToWishlist(product)}>Add to wishlist</button>
                 <button className="product__button product__button--primary" onClick={() => addToCart(product)}>Add to cart</button>
