@@ -52,13 +52,27 @@ export function CartProvider({ children }) {
         setCart(data.cart);
     }
 
+    function hasProduct(product) {
+        return cart.find(item => item.id === product.id)
+    }
+
     function getItemsPrice() {
         return cart.reduce((totalPrice, currentItem) => 
             totalPrice += Number(currentItem.price) * currentItem.qty, 0);
     }
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, quantityHandler, getItemsPrice }}>
+        <CartContext.Provider 
+            value={
+                    { 
+                        cart,
+                        addToCart,
+                        removeFromCart,
+                        quantityHandler,
+                        getItemsPrice,
+                        hasProduct
+                    }
+            }>
             { children }
         </CartContext.Provider>
     );
