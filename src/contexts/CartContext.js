@@ -52,8 +52,13 @@ export function CartProvider({ children }) {
         setCart(data.cart);
     }
 
+    function getItemsPrice() {
+        return cart.reduce((totalPrice, currentItem) => 
+            totalPrice += Number(currentItem.price) * currentItem.qty, 0);
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, quantityHandler }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, quantityHandler, getItemsPrice }}>
             { children }
         </CartContext.Provider>
     );
