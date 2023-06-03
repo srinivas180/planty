@@ -45,6 +45,19 @@ body {
   color: white;
 }
 
+.button--secondary:disabled {
+  border: 1px solid var(--medium-green);
+  background-color: white;
+  border-radius: 8px;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.button--secondary:disabled:hover {
+  border: 1px solid var(--medium-green);
+  cursor: default;
+}
+
 .button--text {
   cursor: pointer;
   border: none;
