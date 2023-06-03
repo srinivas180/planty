@@ -23,8 +23,20 @@ export function WishlistProvider({ children }) {
         setWishlist(data.wishlist);
     }
 
+    async function removeFromWishlist(productId) {
+        const response = await fetch(`/api/user/wishlist/${productId}`, {
+            method: "DELETE",
+            headers: {
+                "authorization": encodedToken,
+            },
+        });
+        
+        const data = await response.json();
+        setWishlist(data.wishlist);
+    }
+
     return (
-        <WishlistContext.Provider value={{ wishlist, addToWishlist }}>
+        <WishlistContext.Provider value={{ wishlist, addToWishlist, removeFromWishlist }}>
             { children }
         </WishlistContext.Provider>
     );
