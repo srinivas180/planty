@@ -1,9 +1,11 @@
 import { useContext } from "react";
 
 import { WishlistContext } from "../../contexts/WishlistContext";
+import { CartContext } from "../../contexts/CartContext";
 
 export function WishlistItem({ product }) {
     const { removeFromWishlist } = useContext(WishlistContext);
+    const { addToCart } = useContext(CartContext);
 
     return (
         <div className="product__item">
@@ -13,7 +15,9 @@ export function WishlistItem({ product }) {
                 <button className="product__button product__button--secondary" 
                     onClick={() => removeFromWishlist(product._id)}
                 >Remove Item</button>
-                <button className="product__button product__button--primary">Add to cart</button>
+                <button className="product__button product__button--primary"
+                    onClick={() => addToCart(product)}
+                >Add to cart</button>
             </div>
         </div>
     )
