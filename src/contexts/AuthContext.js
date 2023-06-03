@@ -3,8 +3,8 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-    const [encodedToken, setEncodedToken] = useState();
-    const [user, setUser] = useState();
+    const [encodedToken, setEncodedToken] = useState(localStorage.getItem("encodedToken"));
+    const [user, setUser] = useState(localStorage.getItem("user"));
 
     async function loginHandler(userCredentials) {
         const response = await fetch("/api/auth/login", {
