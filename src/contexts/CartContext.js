@@ -35,8 +35,25 @@ export function CartProvider({ children }) {
         setCart(data.cart);
     }
 
+    async function quantityHandler(productId, type) {
+        const response = await fetch(`api/user/cart/${productId}`, {
+            method: "POST",
+            headers: {
+                "authorization": encodedToken,
+            },
+            body: JSON.stringify({
+                action: {
+                    type,
+                }
+            }),
+        });
+
+        const data = await response.json();
+        setCart(data.cart);
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, quantityHandler }}>
             { children }
         </CartContext.Provider>
     );

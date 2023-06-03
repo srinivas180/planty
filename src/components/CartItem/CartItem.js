@@ -4,7 +4,7 @@ import { CartContext } from "../../contexts/CartContext";
 import "./CartItem.css";
 
 export function CartItem({ item }) {
-    const { removeFromCart } = useContext(CartContext);
+    const { removeFromCart, quantityHandler } = useContext(CartContext);
     return (
         <div className="cart-item">
             <img className="cart-item__image" src={item.imageLink} alt={item.altText}/>
@@ -16,9 +16,9 @@ export function CartItem({ item }) {
                 </div>
                 <div className="quantity">
                     <span className="quantity__title">Quantity: </span>
-                    <button className="quantity__button button--secondary">-</button>
-                    <span className="quantity__number">1</span>
-                    <button className="quantity__button button--secondary">+</button>
+                    <button className="quantity__button button--secondary" onClick={() => quantityHandler(item._id, "decrement")} disabled={item.qty === 1}>-</button>
+                    <span className="quantity__number">{item.qty}</span>
+                    <button className="quantity__button button--secondary" onClick={() => quantityHandler(item._id, "increment")}>+</button>
                 </div>
                 <div className="cart-item__buttons">
                     <button className="cart-item__button button--secondary" onClick={() => removeFromCart(item._id)}>Remove Item</button>
