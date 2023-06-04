@@ -38,12 +38,4 @@ export const categories = [
     description:
       "This plants are great natural mosquito repellers.",
   },
-  {
-    _id: uuid(),
-    categoryName: "Bonsai Plants",
-    imageLink: "https://raw.githubusercontent.com/srinivas180/planty/main/src/images/categories/azalea-bonsai.jpg",
-    altText: "azalea bonsai plant",
-    description:
-      "Bonsai trees are normal plants, but trained using sophisticated techniques to keep them miniature.",
-  },
 ];
