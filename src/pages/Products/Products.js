@@ -6,7 +6,7 @@ import { Product } from "../../components/Product/Product";
 import "./Products.css"
 
 export function Products() {
-    const { products } = useContext(ProductsContext);
+    const { products, setFilters, filteredProducts } = useContext(ProductsContext);
 
     function CategoryFilter() {
         return (
@@ -50,11 +50,29 @@ export function Products() {
             <div className="filters__container">
                 <h3 className="filters__heading">Sort By</h3>
                 <label className="filters__label">
-                    <input className="filters__input" type="radio" name="rating"/>
+                    <input 
+                        className="filters__input"
+                        type="radio"
+                        value="SORT_LOW_TO_HIGH"
+                        name="rating"
+                        onClick={
+                            () => setFilters(
+                                filters => ({...filters, sortLowToHigh: true, sortHighToLow: false}))
+                        }
+                    />
                     Price - Low to High
                 </label>
                 <label className="filters__label">
-                    <input className="filters__input" type="radio" name="rating"/>
+                    <input
+                        className="filters__input"
+                        type="radio"
+                        value="SORT_HIGH_TO_LOW"
+                        name="rating"
+                        onClick={
+                            () => setFilters(
+                                filters => ({...filters, sortHighToLow: true, sortLowToHigh:false}))
+                        }
+                    />
                     Price - High to Low
                 </label>
             </div>
@@ -73,7 +91,7 @@ export function Products() {
                 <h2>Products</h2>
                 <div className="products__list">
                     {
-                        products.map(product => (
+                        ((filteredProducts.length == 0) ? products : filteredProducts).map(product => (
                             <Product key={product.id} product={product} />
                         ))
                     }
