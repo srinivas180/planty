@@ -15,7 +15,7 @@ export function Product({ product }) {
                 <div className="product__rating-heading">
                     <div className="product__rating">
                         <span>{product.rating}</span>
-                        <span class="fa fa-star"></span>
+                        <span className="fa fa-star"></span>
                     </div>
                     <h3 className="product__heading">{product.title}</h3>
                 </div>
