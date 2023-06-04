@@ -2,40 +2,30 @@ import { useContext } from "react"
 
 import { ProductsContext } from "../../contexts/ProductsContext";
 import { Product } from "../../components/Product/Product";
+import { CategoriesContext } from "../../contexts/CategoriesContext";
 
 import "./Products.css"
 
 export function Products() {
     const { products, setFilters, filteredProducts } = useContext(ProductsContext);
+    const { categories } = useContext(CategoriesContext);
 
     function CategoryFilter() {
         return (
             <div className="filters__container">
                 <h3 className="filters__heading">Category</h3>
-                <label className="filters__label">
-                    <input className="filters__input" type="checkbox"/>
-                    Indoor Plants
-                </label>
-                <label className="filters__label">
-                    <input className="filters__input" type="checkbox"/>
-                    Outdoor Plants
-                </label>
-                <label className="filters__label">
-                    <input className="filters__input" type="checkbox"/>
-                    Air Purifier Plants
-                </label>
-                <label className="filters__label">
-                    <input className="filters__input" type="checkbox"/>
-                    Mosquito Repellent Plants
-                </label>
-                <label className="filters__label">
-                    <input className="filters__input" type="checkbox"/>
-                    Bonsai Plants
-                </label>
+                {
+                    categories.map(category => (
+                        <label className="filters__label">
+                            <input className="filters__input" type="checkbox"/>
+                            {category.categoryName}
+                        </label>
+                    ))
+                }
             </div>
         );
     }
-    
+
     function RatingFilter() {
         return (
             <div className="filters__container">
