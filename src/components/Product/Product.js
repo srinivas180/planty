@@ -12,7 +12,15 @@ export function Product({ product }) {
         <div className="product__item">
             <img className="product__image" src={product.imageLink} />
             <div className="product__head">
-                <h3 className="product__heading">{product.title}</h3>
+                <div className="product__rating-heading">
+                    <div className="product__rating">
+                        <span>{product.rating}</span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <h3 className="product__heading">{product.title}</h3>
+                </div>
+
+
                 <span className="product__price">₹{product.price}</span>
             </div>
             <div className="product__buttons">
