@@ -16,7 +16,7 @@ export function Products() {
                 <h3 className="filters__heading">Category</h3>
                 {
                     categories.map(category => (
-                        <label className="filters__label">
+                        <label key={category.id} className="filters__label">
                             <input className="filters__input" type="checkbox"/>
                             {category.categoryName}
                         </label>
