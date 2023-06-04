@@ -15,7 +15,6 @@ export function ProductsProvider({ children }) {
     });
     
     function applyFilters() {
-        console.log("applying filters")
         let filteredProducts = [...products];
         if(filters.searchQuery) {
             filteredProducts = filteredProducts.filter(
