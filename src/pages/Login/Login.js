@@ -7,7 +7,7 @@ import "./Login.css";
 
 export function Login() {
     const { loginHandler } = useContext(AuthContext);
-    const guesUserCredentials = {
+    const guestUserCredentials = {
         email: "satyachandra@proton.me",
         password: "satyachandra",
     };
@@ -31,7 +31,7 @@ export function Login() {
                     onClick={
                         (event) => {
                             event.preventDefault();
-                            loginHandler(guesUserCredentials)
+                            loginHandler(guestUserCredentials)
                         }
                     }
                 >Login as Guest</button>
