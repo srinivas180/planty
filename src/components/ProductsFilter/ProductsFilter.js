@@ -19,7 +19,6 @@ export function ProductsFilter() {
                                 className="filters__input"
                                 type="checkbox"
                                 value={category.categoryName}
-                                checked={filters.categoriesCheckedState[clickedCategoryIndex]}
                                 onChange={() => setFilters(
                                     filters => (
                                         {
@@ -44,7 +43,7 @@ export function ProductsFilter() {
                     min="1"
                     max="5"
                     step="1"
-                    value={filters.rating}
+                    defaultValue="1"
                     onChange={
                         (event) => setFilters(
                             (filters) => (
@@ -63,7 +62,6 @@ export function ProductsFilter() {
                         type="radio"
                         value="SORT_LOW_TO_HIGH"
                         name="rating"
-                        checked={filters.sortLowToHigh}
                         onChange={
                             () => setFilters(
                                 filters => ({...filters, sortLowToHigh: true, sortHighToLow: false}))
@@ -77,7 +75,7 @@ export function ProductsFilter() {
                         type="radio"
                         value="SORT_HIGH_TO_LOW"
                         name="rating"
-                        checked={filters.sortHighToLow}
+                        // checked={filters.sortHighToLow}
                         onChange={
                             () => setFilters(
                                 filters => ({...filters, sortHighToLow: true, sortLowToHigh:false}))
