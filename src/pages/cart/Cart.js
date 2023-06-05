@@ -8,7 +8,6 @@ import "./Cart.css";
 export function Cart() {
     const {cart, getItemsPrice} = useContext(CartContext);
     const itemsPrice = getItemsPrice();
-    const totalAmount = itemsPrice - 100;
 
     function PriceDetails() {
         return (
@@ -22,7 +21,7 @@ export function Cart() {
                     </div>
                     <div className="price__item">
                         <p className="price__attribute">Discount</p>
-                        <p className="price__value">-₹200.00</p>
+                        <p className="price__value">-₹100.00</p>
                     </div>
                     <div className="price__item">
                         <p className="price__attribute">Delivery Charges</p>
@@ -32,7 +31,7 @@ export function Cart() {
 
                 <div className="total-price price__item">
                     <p className="total-price__attribute">Total Amount</p>
-                    <p className="total-price__value">₹{totalAmount}.00</p>
+                    <p className="total-price__value">₹{itemsPrice}.00</p>
                 </div>
 
                 <p className="price__savings">
