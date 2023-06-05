@@ -26,7 +26,6 @@ export function ProductsProvider({ children }) {
         }
 
         if(!showAllCategories) {
-            console.log(filteredProducts)
             filteredProducts = filters.categoriesCheckedState.reduce(
                 (categoryFilteredProducts, checkedState, index) => {
                     if(checkedState) {
