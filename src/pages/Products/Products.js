@@ -5,16 +5,27 @@ import { Product } from "../../components/Product/Product";
 import { ProductsFilter } from "../../components/ProductsFilter/ProductsFilter";
 
 import "./Products.css"
+import { CategoriesContext } from "../../contexts/CategoriesContext";
 
 export function Products() {
-    const { filteredProducts } = useContext(ProductsContext);
+    const { filters, setFilters, filteredProducts } = useContext(ProductsContext);
+    const { categories } = useContext(CategoriesContext);
 
     return (
         <div className="row container">
             <div className="filters">
                 <div className="filters__head">
                     <h2 className="filters__title">Filters</h2>
-                    <button className="button--primary">Clear Filters</button>
+                    <button
+                        className="button--primary"
+                        onClick={() => setFilters({
+                            searchQuery: filters.searchQuery,
+                            categoriesCheckedState: categories.map(() => false),
+                            rating: 1,
+                            sortLowToHigh: false,
+                            sortHighToLow: false,
+                        })}
+                    >Clear Filters</button>
                 </div>
                 <ProductsFilter />
             </div>
