@@ -5,7 +5,7 @@ import { CartContext } from "../../contexts/CartContext";
 
 export function WishlistItem({ product }) {
     const { removeFromWishlist } = useContext(WishlistContext);
-    const { addToCart, hasProduct, quantityHandler} = useContext(CartContext);
+    const { addToCart, cartHasProduct, quantityHandler} = useContext(CartContext);
 
     return (
         <div className="product__item">
@@ -17,7 +17,7 @@ export function WishlistItem({ product }) {
                 >Remove Item</button>
                 <button className="product__button product__button--primary"
                     onClick={() => {
-                        if(hasProduct(product)) {
+                        if(cartHasProduct(product)) {
                             quantityHandler(product._id, "increment");
                         } else {
                             addToCart(product);

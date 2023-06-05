@@ -52,7 +52,7 @@ export function CartProvider({ children }) {
         setCart(data.cart);
     }
 
-    function hasProduct(product) {
+    function cartHasProduct(product) {
         return cart.find(item => item.id === product.id)
     }
 
@@ -70,7 +70,7 @@ export function CartProvider({ children }) {
                         removeFromCart,
                         quantityHandler,
                         getItemsPrice,
-                        hasProduct
+                        cartHasProduct
                     }
             }>
             { children }
