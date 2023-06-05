@@ -7,7 +7,7 @@ import { CategoriesContext } from "../../contexts/CategoriesContext";
 import "./Products.css"
 
 export function Products() {
-    const { products, setFilters, filteredProducts } = useContext(ProductsContext);
+    const { filters, setFilters, filteredProducts } = useContext(ProductsContext);
     const { categories } = useContext(CategoriesContext);
 
     function CategoryFilter() {
@@ -15,9 +15,22 @@ export function Products() {
             <div className="filters__container">
                 <h3 className="filters__heading">Category</h3>
                 {
-                    categories.map(category => (
+                    categories.map((category, clickedCategoryIndex) => (
                         <label key={category.id} className="filters__label">
-                            <input className="filters__input" type="checkbox"/>
+                            <input
+                                className="filters__input"
+                                type="checkbox"
+                                value={category.categoryName}
+                                checked={filters.categoriesCheckedState[clickedCategoryIndex]}
+                                onChange={() => setFilters(
+                                    filters => (
+                                        {
+                                            ...filters,
+                                            categoriesCheckedState: filters.categoriesCheckedState.map((state, index) => index == clickedCategoryIndex ? !state : state),
+                                        }
+                                    )
+                                )}
+                            />
                             {category.categoryName}
                         </label>
                     ))
@@ -30,7 +43,20 @@ export function Products() {
         return (
             <div className="filters__container">
                 <h3 className="filters__heading">Rating</h3>
-                <input className="filters__input input__range" type="range" min="1" max="5" step="1" defaultValue="3"/>
+                <input
+                    className="filters__input input__range"
+                    type="range"
+                    min="1"
+                    max="5"
+                    step="1"
+                    value={filters.rating}
+                    onChange={
+                        (event) => setFilters(
+                            (filters) => (
+                                {...filters, rating: event.target.value}
+                            ))
+                    }
+                    />
             </div>
         );
     }
@@ -81,7 +107,7 @@ export function Products() {
                 <h2>Products</h2>
                 <div className="products__list">
                     {
-                        ((filteredProducts.length == 0) ? products : filteredProducts).map(product => (
+                        filteredProducts.map(product => (
                             <Product key={product.id} product={product} />
                         ))
                     }

@@ -1,15 +1,18 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
+import { CategoriesContext } from "./CategoriesContext";
 
 export const ProductsContext = createContext();
 
 export function ProductsProvider({ children }) {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const { categories } = useContext(CategoriesContext);
+    const [showAllCategories, setShowAllCategories] = useState(true);
 
     const [filters, setFilters] = useState({
         searchQuery: null,
-        includeCategory: [],
-        rating: -1,
+        categoriesCheckedState: categories.map(() => false),
+        rating: 1,
         sortLowToHigh: false,
         sortHighToLow: false,
     });
@@ -22,18 +25,19 @@ export function ProductsProvider({ children }) {
             );
         }
 
-        if(filters.includeCategory.length > 0) {
-            filteredProducts = filters.includeCategory.reduce(
-                (categoryFilteredProducts, currentCategory) => {
-                    return categoryFilteredProducts.filter(product => product.categoryName === currentCategory)
-                },
-                filteredProducts
+        if(!showAllCategories) {
+            console.log(filteredProducts)
+            filteredProducts = filters.categoriesCheckedState.reduce(
+                (categoryFilteredProducts, checkedState, index) => {
+                    if(checkedState) {
+                        return [...categoryFilteredProducts, ...filteredProducts.filter(product => product.categoryName === categories[index].categoryName)];
+                    }
+                    return categoryFilteredProducts;
+                }, []
             );
         }
 
-        if(filters.rating != -1) {
-            filteredProducts = filteredProducts.filter(product => product.rating > filters.rating);
-        }
+        filteredProducts = filteredProducts.filter(product => product.rating >= filters.rating);
 
         if(filters.sortLowToHigh) {
             filteredProducts.sort((product1, product2) => product1.price - product2.price);
@@ -60,11 +64,17 @@ export function ProductsProvider({ children }) {
     }, []);
 
     useEffect(() => {
+        setFilters(filters => ({...filters, categoriesCheckedState: categories.map(() => false)}))
+    }, [categories])
+
+    useEffect(() => {
         setFilteredProducts(applyFilters());
-    }, [filters])
+
+        setShowAllCategories(!filters.categoriesCheckedState?.find(state => state))
+    }, [filters, showAllCategories])
 
     return (
-        <ProductsContext.Provider value={{ products, filteredProducts, setFilters }}>
+        <ProductsContext.Provider value={{ products, filters, filteredProducts, setFilters }}>
             { children }
         </ProductsContext.Provider>
     );
