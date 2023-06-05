@@ -11,6 +11,16 @@
   width: 16%;
 }
 
+.filters__head {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters__title {
+  margin: 0;
+}
+
 .filters__container {
   display: flex;
   flex-direction: column;

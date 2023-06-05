@@ -12,7 +12,10 @@ export function Products() {
     return (
         <div className="row container">
             <div className="filters">
-                <h2>Filters</h2>
+                <div className="filters__head">
+                    <h2 className="filters__title">Filters</h2>
+                    <button className="button--primary">Clear Filters</button>
+                </div>
                 <ProductsFilter />
             </div>
             <div className="products">
