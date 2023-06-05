@@ -5,9 +5,9 @@ export const ProductsContext = createContext();
 
 export function ProductsProvider({ children }) {
     const [products, setProducts] = useState([]);
-    const [filteredProducts, setFilteredProducts] = useState([]);
     const { categories } = useContext(CategoriesContext);
     const [showAllCategories, setShowAllCategories] = useState(true);
+    let filteredProducts = [...products];
 
     const [filters, setFilters] = useState({
         searchQuery: null,
@@ -16,37 +16,32 @@ export function ProductsProvider({ children }) {
         sortLowToHigh: false,
         sortHighToLow: false,
     });
-    
-    function applyFilters() {
-        let filteredProducts = [...products];
-        if(filters.searchQuery) {
-            filteredProducts = filteredProducts.filter(
-                product => product.title.toLowerCase() === filters.searchQuery.toLowerCase()
-            );
-        }
 
-        if(!showAllCategories) {
-            filteredProducts = filters.categoriesCheckedState.reduce(
-                (categoryFilteredProducts, checkedState, index) => {
-                    if(checkedState) {
-                        return [...categoryFilteredProducts, ...filteredProducts.filter(product => product.categoryName === categories[index].categoryName)];
-                    }
-                    return categoryFilteredProducts;
-                }, []
-            );
-        }
+    if(filters.searchQuery) {
+        filteredProducts = filteredProducts.filter(
+            product => product.title.toLowerCase().includes(filters.searchQuery.toLowerCase())
+        );
+    }
 
-        filteredProducts = filteredProducts.filter(product => product.rating >= filters.rating);
+    if(!showAllCategories) {
+        filteredProducts = filters.categoriesCheckedState.reduce(
+            (categoryFilteredProducts, checkedState, index) => {
+                if(checkedState) {
+                    return [...categoryFilteredProducts, ...filteredProducts.filter(product => product.categoryName === categories[index].categoryName)];
+                }
+                return categoryFilteredProducts;
+            }, []
+        );
+    }
 
-        if(filters.sortLowToHigh) {
-            filteredProducts.sort((product1, product2) => product1.price - product2.price);
-        }
+    filteredProducts = filteredProducts.filter(product => product.rating >= filters.rating);
 
-        if(filters.sortHighToLow) {
-            filteredProducts.sort((product1, product2) => product2.price - product1.price);
-        }
+    if(filters.sortLowToHigh) {
+        filteredProducts.sort((product1, product2) => product1.price - product2.price);
+    }
 
-        return filteredProducts;
+    if(filters.sortHighToLow) {
+        filteredProducts.sort((product1, product2) => product2.price - product1.price);
     }
 
     async function getProducts() {
@@ -67,8 +62,6 @@ export function ProductsProvider({ children }) {
     }, [categories])
 
     useEffect(() => {
-        setFilteredProducts(applyFilters());
-
         setShowAllCategories(!filters.categoriesCheckedState?.find(state => state))
     }, [filters, showAllCategories])
 
