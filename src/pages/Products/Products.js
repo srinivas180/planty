@@ -71,7 +71,8 @@ export function Products() {
                         type="radio"
                         value="SORT_LOW_TO_HIGH"
                         name="rating"
-                        onClick={
+                        checked={filters.sortLowToHigh}
+                        onChange={
                             () => setFilters(
                                 filters => ({...filters, sortLowToHigh: true, sortHighToLow: false}))
                         }
@@ -84,7 +85,8 @@ export function Products() {
                         type="radio"
                         value="SORT_HIGH_TO_LOW"
                         name="rating"
-                        onClick={
+                        checked={filters.sortHighToLow}
+                        onChange={
                             () => setFilters(
                                 filters => ({...filters, sortHighToLow: true, sortLowToHigh:false}))
                         }
