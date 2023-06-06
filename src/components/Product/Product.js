@@ -6,7 +6,7 @@ import "./Product.css";
 
 export function Product({ product }) {
     const { addToCart, cartHasProduct } = useContext(CartContext);
-    const { addToWishlist } = useContext(WishlistContext);
+    const { addToWishlist, removeFromWishlist, wishlistHasItem } = useContext(WishlistContext);
 
     return (
         <div className="product__item">
@@ -24,7 +24,15 @@ export function Product({ product }) {
                 <span className="product__price">₹{product.price}</span>
             </div>
             <div className="product__buttons">
-                <button className="product__button product__button--secondary" onClick={() => addToWishlist(product)}>Add to wishlist</button>
+                <button className="product__button product__button--secondary"
+                    onClick={() => {
+                        wishlistHasItem(product) ? removeFromWishlist(product._id) : addToWishlist(product)
+                    }}
+                >
+                    {
+                        wishlistHasItem(product) ? "Remove from wishlist" : "Add to wishlist"
+                    }
+                </button>
                 <button className="product__button product__button--primary" onClick={() => addToCart(product)}>
                     {
                         cartHasProduct(product) ? "Go to cart" : "Add to cart"
