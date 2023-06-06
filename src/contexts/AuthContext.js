@@ -21,8 +21,23 @@ export function AuthProvider({ children }) {
         setUser(foundUser);
     }
 
+    async function signupHandler(userCredentials) {
+        const response = await fetch("/api/auth/signup", {
+            method: 'POST',
+            body: JSON.stringify(userCredentials),
+        });
+
+        const { encodedToken, createdUser} = await response.json();
+
+        localStorage.setItem("encodedToken", encodedToken);
+        localStorage.setItem("user", createdUser);
+
+        setEncodedToken(encodedToken);
+        setUser(createdUser);
+    }
+
     return (
-        <AuthContext.Provider value={{ encodedToken, user, loginHandler }} >
+        <AuthContext.Provider value={{ encodedToken, user, loginHandler, signupHandler }} >
             { children }
         </AuthContext.Provider>
     );
