@@ -10,7 +10,7 @@ export function SignUp() {
     return (
         <div className="container column column--center">
             <form className="form column">
-            <h2 className="form__heading">Sign Up</h2>
+                <h2 className="form__heading">Sign Up</h2>
                 <input
                     className="form__input"
                     type="text"
