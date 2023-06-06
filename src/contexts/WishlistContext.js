@@ -9,7 +9,7 @@ export function WishlistProvider({ children }) {
     const { encodedToken } = useContext(AuthContext);
 
     async function addToWishlist(product) {
-        const response = await fetch("api/user/wishlist", {
+        const response = await fetch("/api/user/wishlist", {
             method: "POST",
             headers: {
                 "authorization": encodedToken,

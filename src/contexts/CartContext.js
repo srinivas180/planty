@@ -9,7 +9,7 @@ export function CartProvider({ children }) {
     const { encodedToken } = useContext(AuthContext);
 
     async function addToCart(product) {
-        const response = await fetch("api/user/cart", {
+        const response = await fetch("/api/user/cart", {
             method: "POST",
             headers: {
                 "authorization": encodedToken,
