@@ -1,10 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
     const [encodedToken, setEncodedToken] = useState(localStorage.getItem("encodedToken"));
     const [user, setUser] = useState(localStorage.getItem("user"));
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     async function loginHandler(userCredentials) {
         const response = await fetch("/api/auth/login", {
@@ -36,8 +37,12 @@ export function AuthProvider({ children }) {
         setUser(createdUser);
     }
 
+    useEffect(() => {
+        setIsLoggedIn(user != undefined);
+    }, [user])
+
     return (
-        <AuthContext.Provider value={{ encodedToken, user, loginHandler, signupHandler }} >
+        <AuthContext.Provider value={{ encodedToken, user, isLoggedIn, loginHandler, signupHandler }} >
             { children }
         </AuthContext.Provider>
     );

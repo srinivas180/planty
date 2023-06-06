@@ -2,10 +2,13 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 
 import { ProductsContext } from "../../contexts/ProductsContext";
+import { AuthContext } from "../../contexts/AuthContext";
+
 import "./Header.css"
 
 export function Header() {
     const { setFilters } = useContext(ProductsContext);
+    const { isLoggedIn } = useContext(AuthContext);
 
     return (
         <header className="header">
@@ -14,11 +17,16 @@ export function Header() {
                 <h1 className="logo__name">Planty</h1>
             </div>
             <nav className="nav">
-                <NavLink className="nav__link" to="/login">Login</NavLink>
                 <NavLink className="nav__link" to="/products">Products</NavLink>
                 <NavLink className="nav__link" to="/wishlist">Wishlist</NavLink>
                 <NavLink className="nav__link" to="/cart">Cart</NavLink>
-                <NavLink className="nav__link" to="/profile">Profile</NavLink>
+                {
+                    isLoggedIn ? (
+                        <NavLink className="nav__link" to="/profile">Profile</NavLink>
+                    ) : (
+                        <NavLink className="nav__link" to="/login">Login</NavLink>
+                    )
+                }
             </nav>
 
             <div className="search">
