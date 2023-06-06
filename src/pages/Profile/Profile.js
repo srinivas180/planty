@@ -1,9 +1,11 @@
 import { useContext } from "react";
+import { AddressContext } from "../../contexts/AddressContext";
 import { AuthContext } from "../../contexts/AuthContext";
 import "./Profile.css";
 
 export function Profile() {
     const { user, logoutHandler } = useContext(AuthContext);
+    const { addresses } = useContext(AddressContext);
 
     return (
         <>
@@ -25,18 +27,25 @@ export function Profile() {
                             </div>
 
                             <h3 className="account__sub-heading">Address</h3>
-                            <div className="address">
-                                <h4 className="address__subheading">Home</h4>
-                                <div>
-                                    #1/4 , 100ft Ring Road, Karve Nagar
-                                </div>
-                                <div>
-                                    Whitefield
-                                </div>
-                                <div>
-                                    Bangalore, India
-                                </div>
-                            </div>
+                            {
+                                addresses.map(address => (
+                                    <div className="address">
+                                        <h4 className="address__subheading">{ address.title }</h4>
+                                        <div>
+                                            {address.houseNo}, 100ft Ring Road, Karve Nagar
+                                        </div>
+                                        <div>
+                                            {address.colony}
+                                        </div>
+                                        <div>
+                                            {address.city}, {address.state} - {address.pinCode}
+                                        </div>
+                                        <div>
+                                            {address.country}
+                                        </div>
+                                    </div>
+                                ))
+                            }
                             <button className="button--primary logout" onClick={() => logoutHandler()}>Logout</button>
                         </div>
                 </div>

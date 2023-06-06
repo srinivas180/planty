@@ -6,11 +6,11 @@ export function AddressProvider({ children }) {
     const defaultAddress = {
         title: "Home",
         houseNo: "4534",
-        colony: "MG colony",
+        colony: "MG Colony",
         city: "Pune",
         state: "Maharashtra",
         country: "India",
-        pinCode: "343234"
+        pinCode: "543234"
     };
 
     const [addresses, setAddresses] = useState([defaultAddress]);
