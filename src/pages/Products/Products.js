@@ -8,7 +8,7 @@ import "./Products.css"
 import { CategoriesContext } from "../../contexts/CategoriesContext";
 
 export function Products() {
-    const { filters, setFilters, filteredProducts } = useContext(ProductsContext);
+    const { filters, setFilters, products, filteredProducts } = useContext(ProductsContext);
     const { categories } = useContext(CategoriesContext);
 
     return (
@@ -30,7 +30,7 @@ export function Products() {
                 <ProductsFilter />
             </div>
             <div className="products">
-                <h2>Products</h2>
+                <h2>Products (showing { filteredProducts.length } of { products.length } plants)</h2>
                 <div className="products__list">
                     {
                         filteredProducts.map(product => (
