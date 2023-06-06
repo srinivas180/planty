@@ -26,6 +26,17 @@
   margin-bottom: 8px;
 }
 
+.address__buttons {
+  gap: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.address__button {
+  flex: 1;
+  padding: 8px;
+}
+
 .logout {
   padding: 12px;
   font-size: 18px;

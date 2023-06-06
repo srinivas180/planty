@@ -43,6 +43,14 @@ export function Profile() {
                                         <div>
                                             {address.country}
                                         </div>
+                                        <div className="address__buttons">
+                                            <button className="button--secondary address__button">
+                                                Edit
+                                            </button>
+                                            <button className="button--secondary address__button">
+                                                Remove
+                                            </button>
+                                        </div>
                                     </div>
                                 ))
                             }
