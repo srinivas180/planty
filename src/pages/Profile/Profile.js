@@ -30,7 +30,7 @@ export function Profile() {
                         Bangalore, India
                     </div>
                 </div>
-                <button className="button--primary form__submit" type="submit">Logout</button>
+                <button className="button--primary logout">Logout</button>
             </div>
         </div>
     )
