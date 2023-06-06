@@ -1,0 +1,10 @@
+.single-product {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.single-product__details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
