@@ -37,12 +37,20 @@ export function AuthProvider({ children }) {
         setUser(createdUser);
     }
 
+    async function logoutHandler() {
+        localStorage.setItem("encodedToken", null);
+        localStorage.setItem("user", null);
+
+        setEncodedToken(null);
+        setUser(null);
+    }
+
     useEffect(() => {
         setIsLoggedIn(user != undefined || user != null);
     }, [user])
 
     return (
-        <AuthContext.Provider value={{ encodedToken, user, isLoggedIn, loginHandler, signupHandler }} >
+        <AuthContext.Provider value={{ encodedToken, user, isLoggedIn, loginHandler, signupHandler, logoutHandler }} >
             { children }
         </AuthContext.Provider>
     );
