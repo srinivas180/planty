@@ -10,6 +10,7 @@ import { Products } from "./pages/Products/Products";
 import { Cart } from "./pages/Cart/Cart";
 import { Wishlist } from "./pages/Wishlist/Wishlist";
 import { SingleProduct } from "./components/SingleProduct/SingleProduct";
+import { Profile } from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/product/:productId" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </div>

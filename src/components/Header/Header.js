@@ -18,6 +18,7 @@ export function Header() {
                 <NavLink className="nav__link" to="/products">Products</NavLink>
                 <NavLink className="nav__link" to="/wishlist">Wishlist</NavLink>
                 <NavLink className="nav__link" to="/cart">Cart</NavLink>
+                <NavLink className="nav__link" to="/profile">Profile</NavLink>
             </nav>
 
             <div className="search">
