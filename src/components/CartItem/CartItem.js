@@ -25,9 +25,12 @@ export function CartItem({ item }) {
                 </div>
                 <div className="cart-item__buttons">
                     <button className="cart-item__button button--secondary" onClick={() => removeFromCart(item._id)}>Remove Item</button>
-                    <button className="cart-item__button button--secondary" onClick={() => {
-                        wishlistHasItem(item) ? removeFromWishlist(item._id) : addToWishlist(item)
-                    }}>
+                    <button 
+                        className="cart-item__button button--secondary"
+                        onClick={() => {
+                            wishlistHasItem(item) ? removeFromWishlist(item._id) : addToWishlist(item)
+                        }}
+                    >
                         {
                             wishlistHasItem(item) ? "Remove from wishlist" : "Add to wishlist"
                         }
