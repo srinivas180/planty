@@ -5,7 +5,7 @@ import "./Profile.css";
 
 export function Profile() {
     const { user, logoutHandler } = useContext(AuthContext);
-    const { addresses } = useContext(AddressContext);
+    const { addresses, removeAddress } = useContext(AddressContext);
 
     return (
         <>
@@ -47,7 +47,10 @@ export function Profile() {
                                             <button className="button--secondary address__button">
                                                 Edit
                                             </button>
-                                            <button className="button--secondary address__button">
+                                            <button
+                                                className="button--secondary address__button"
+                                                onClick={
+                                                    () => removeAddress(address._id) }>
                                                 Remove
                                             </button>
                                         </div>

@@ -21,8 +21,13 @@ export function AddressProvider({ children }) {
         setAddresses(addresses => [...addresses, {_id: uuid(), ...address}]);
     }
 
+    function removeAddress(addressId) {
+        const updatedAddresses = addresses.filter(address => address._id !== addressId);
+        setAddresses(updatedAddresses);
+    }
+
     return (
-        <AddressContext.Provider value={{ addresses, setAddresses, addAddress }}>
+        <AddressContext.Provider value={{ addresses, setAddresses, addAddress, removeAddress }}>
             { children }
         </AddressContext.Provider>
     )
