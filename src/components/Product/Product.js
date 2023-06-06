@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 import { WishlistContext } from "../../contexts/WishlistContext";
 
@@ -10,7 +11,9 @@ export function Product({ product }) {
 
     return (
         <div className="product__item">
-            <img className="product__image" src={product.imageLink} />
+            <Link to={`/product/${product._id}`}>
+                <img className="product__image" src={product.imageLink} />
+            </Link>
             <div className="product__head">
                 <div className="product__rating-heading">
                     <div className="product__rating">
