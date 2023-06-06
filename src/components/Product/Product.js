@@ -30,7 +30,7 @@ export function Product({ product }) {
                     }}
                 >
                     {
-                        wishlistHasItem(product) ? "Remove from wishlist" : "Add to wishlist"
+                        wishlistHasItem(product) ? "Unwishlist" : "Add to wishlist"
                     }
                 </button>
                 <button className="product__button product__button--primary" onClick={() => addToCart(product)}>

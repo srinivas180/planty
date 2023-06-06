@@ -32,7 +32,7 @@ export function CartItem({ item }) {
                         }}
                     >
                         {
-                            wishlistHasItem(item) ? "Remove from wishlist" : "Add to wishlist"
+                            wishlistHasItem(item) ? "Unwishlist" : "Add to wishlist"
                         }
                     </button>
                 </div>
