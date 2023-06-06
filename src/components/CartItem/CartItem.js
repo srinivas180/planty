@@ -1,10 +1,13 @@
 import { useContext } from "react";
 
 import { CartContext } from "../../contexts/CartContext";
+import { WishlistContext } from "../../contexts/WishlistContext";
 import "./CartItem.css";
 
 export function CartItem({ item }) {
     const { removeFromCart, quantityHandler } = useContext(CartContext);
+    const { addToWishlist } = useContext(WishlistContext);
+
     return (
         <div className="cart-item">
             <img className="cart-item__image" src={item.imageLink} alt={item.altText}/>
@@ -22,7 +25,7 @@ export function CartItem({ item }) {
                 </div>
                 <div className="cart-item__buttons">
                     <button className="cart-item__button button--secondary" onClick={() => removeFromCart(item._id)}>Remove Item</button>
-                    <button className="cart-item__button button--secondary">Move to Wishlist</button>
+                    <button className="cart-item__button button--secondary" onClick={() => addToWishlist(item)}>Add to Wishlist</button>
                 </div>
             </div>
         </div>
