@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 import "./Profile.css";
 
 export function Profile() {
+    const { user } = useContext(AuthContext);
+
     return (
         <div className="container column column--center">
             <div className="column">
@@ -9,11 +13,11 @@ export function Profile() {
                 <div className="profile__details">
                     <div>
                         <span className="profile__title">Full Name:</span>
-                        <span className="profile__value">Satya Chandra</span>
+                        <span className="profile__value">{ user.firstName } { user.lastName }</span>
                     </div>
                     <div>
                         <span className="profile__title">Email:</span>
-                        <span className="profile__value">satyachandra@gmail.com</span>
+                        <span className="profile__value">{ user.email }</span>
                     </div>
                 </div>
 

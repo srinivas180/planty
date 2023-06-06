@@ -4,7 +4,7 @@ export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
     const [encodedToken, setEncodedToken] = useState(localStorage.getItem("encodedToken"));
-    const [user, setUser] = useState(localStorage.getItem("user"));
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     async function loginHandler(userCredentials) {
@@ -12,12 +12,12 @@ export function AuthProvider({ children }) {
             method: 'POST',
             body: JSON.stringify(userCredentials),
         });
-    
+
         const { encodedToken, foundUser } = await response.json();
-        
+
         localStorage.setItem("encodedToken", encodedToken);
-        localStorage.setItem("user", foundUser);
-        
+        localStorage.setItem("user", JSON.stringify(foundUser));
+
         setEncodedToken(encodedToken);
         setUser(foundUser);
     }
@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
     }
 
     useEffect(() => {
-        setIsLoggedIn(user != undefined);
+        setIsLoggedIn(user != undefined || user != null);
     }, [user])
 
     return (
