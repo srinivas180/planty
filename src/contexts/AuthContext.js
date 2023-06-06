@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
         const { encodedToken, createdUser} = await response.json();
 
         localStorage.setItem("encodedToken", encodedToken);
-        localStorage.setItem("user", createdUser);
+        localStorage.setItem("user", JSON.stringify(createdUser));
 
         setEncodedToken(encodedToken);
         setUser(createdUser);
