@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
 import { ProductsContext } from "../../contexts/ProductsContext";
@@ -9,6 +9,7 @@ import "./Header.css"
 export function Header() {
     const { setFilters } = useContext(ProductsContext);
     const { isLoggedIn } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     return (
         <header className="header">
@@ -36,12 +37,16 @@ export function Header() {
                         className="search__input"
                         type="search"
                         placeholder="Search for products"
-                        onChange={(event) => setFilters(filters => (
-                            {
-                                ...filters,
-                                searchQuery: event.target.value,
-                            }
-                        ))}
+                        onChange={(event) => {
+                            setFilters(filters => (
+                                {
+                                    ...filters,
+                                    searchQuery: event.target.value,
+                                }
+                            ));
+
+                            navigate("/products");
+                        }}
                     />
                 </label>
             </div>
