@@ -4,11 +4,12 @@ import { CartContext } from "../../contexts/CartContext";
 import { CartItem } from "../../components/CartItem/CartItem";
 
 import "./Cart.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Cart() {
     const {cart, getItemsPrice} = useContext(CartContext);
     const itemsPrice = getItemsPrice();
+    const navigate = useNavigate();
 
     return (
         <>
@@ -56,7 +57,9 @@ export function Cart() {
                                 You will save ₹100.00 on this order
                             </p>
             
-                            <button className="button--primary price__checkout">Checkout</button>
+                            <button className="button--primary price__checkout" onClick={
+                                () => navigate("/checkout")
+                            }>Checkout</button>
                         </div>
                     </div>
                 )
