@@ -8,7 +8,7 @@ export function Home() {
     const { categories } = useContext(CategoriesContext);
 
     return (
-        <div className="container">
+        <div className="container categories-container">
             <h2>Categories</h2>
             <div className="categories">
                 <ul className="categories__list">

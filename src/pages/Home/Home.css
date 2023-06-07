@@ -4,6 +4,10 @@
   padding: 12px 24px;
 }
 
+.categories-container {
+  width: 50%;
+}
+
 .categories__list {
   display: flex;
   flex-direction: column;
@@ -23,6 +27,6 @@
 @media screen and (min-width: 768px) {
   .categories__list {
     column-gap: 48px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
