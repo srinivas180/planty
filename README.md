@@ -32,4 +32,7 @@ An e-commerce website for purchasing plants.
 * Checkout
 
 ## Demo Link
-Link:https://planty-99.netlify.app/
+Link: https://planty-99.netlify.app/
+
+## Demo Video
+
