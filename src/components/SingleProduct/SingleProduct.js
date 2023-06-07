@@ -13,7 +13,7 @@ export function SingleProduct() {
     const { productId } = useParams();
     const [product, setProduct] = useState();
 
-    const { addToCart, cartHasProduct } = useContext(CartContext);
+    const { addToCart, cartHasProduct, navigateToCart } = useContext(CartContext);
     const { addToWishlist, removeFromWishlist, wishlistHasItem } = useContext(WishlistContext);
 
     async function fetchProduct() {
@@ -45,7 +45,9 @@ export function SingleProduct() {
                                 accusam tincidunt dolore diam et et te amet nulla.
                             </div>
                             <div className="cart-item__buttons">
-                                <button className="cart-item__button button--secondary" onClick={() => addToCart(product)}>
+                                <button className="cart-item__button button--secondary" onClick={() => {
+                                    cartHasProduct(product) ? navigateToCart() : addToCart(product);
+                                }}>
                                     {
                                         cartHasProduct(product ?? false) ? "Go to cart" : "Add to cart"
                                     }
