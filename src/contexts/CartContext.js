@@ -1,5 +1,8 @@
 import { createContext, useState, useContext } from "react";
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { AuthContext } from "./AuthContext";
 
@@ -23,6 +26,9 @@ export function CartProvider({ children }) {
         
         const data = await response.json();
         setCart(data.cart);
+        toast.success("Added to cart", {
+            position: "bottom-right"
+        });
     }
 
     async function removeFromCart(productId) {
@@ -35,6 +41,9 @@ export function CartProvider({ children }) {
         
         const data = await response.json();
         setCart(data.cart);
+        toast.warning("Removed from cart", {
+            position: "bottom-right"
+        });
     }
 
     async function quantityHandler(productId, type) {
@@ -68,19 +77,22 @@ export function CartProvider({ children }) {
     }
 
     return (
-        <CartContext.Provider 
-            value={
-                    { 
-                        cart,
-                        addToCart,
-                        removeFromCart,
-                        quantityHandler,
-                        getItemsPrice,
-                        cartHasProduct,
-                        navigateToCart
-                    }
-            }>
-            { children }
-        </CartContext.Provider>
+        <>
+            <CartContext.Provider 
+                value={
+                        { 
+                            cart,
+                            addToCart,
+                            removeFromCart,
+                            quantityHandler,
+                            getItemsPrice,
+                            cartHasProduct,
+                            navigateToCart,
+                        }
+                }>
+                { children }
+            </CartContext.Provider>
+            <ToastContainer/>
+        </>
     );
 }

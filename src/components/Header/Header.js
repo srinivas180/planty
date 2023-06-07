@@ -19,7 +19,6 @@ export function Header() {
                 </Link>
             </div>
             <nav className="nav">
-                <NavLink className="nav__link" to="/checkout">Checkout</NavLink>
                 <NavLink className="nav__link" to="/products">Products</NavLink>
                 <NavLink className="nav__link" to={isLoggedIn ? "/wishlist" : "/login"}>Wishlist</NavLink>
                 <NavLink className="nav__link" to={isLoggedIn ? "/cart" : "/login"}>Cart</NavLink>

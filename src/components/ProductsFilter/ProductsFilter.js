@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Circles } from "react-spinner-loader";
 
 import { CategoriesContext } from "../../contexts/CategoriesContext";
 import { ProductsContext } from "../../contexts/ProductsContext";
@@ -13,25 +14,37 @@ export function ProductsFilter() {
             <div className="filters__container">
                 <h3 className="filters__heading">Category</h3>
                 {
-                    categories.map((category, clickedCategoryIndex) => (
-                        <label key={category.id} className="filters__label">
-                            <input
-                                className="filters__input"
-                                type="checkbox"
-                                value={category.categoryName}
-                                checked={filters.categoriesCheckedState[clickedCategoryIndex]}
-                                onChange={() => setFilters(
-                                    filters => (
-                                        {
-                                            ...filters,
-                                            categoriesCheckedState: filters.categoriesCheckedState.map((state, index) => index == clickedCategoryIndex ? !state : state),
-                                        }
-                                    )
-                                )}
-                            />
-                            {category.categoryName}
-                        </label>
-                    ))
+                    categories.length === 0 ? (
+                        <Circles
+                            height="80"
+                            width="80"
+                            color="#4fa94d"
+                            ariaLabel="circles-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                        />
+                    ) : (
+                        categories.map((category, clickedCategoryIndex) => (
+                            <label key={category.id} className="filters__label">
+                                <input
+                                    className="filters__input"
+                                    type="checkbox"
+                                    value={category.categoryName}
+                                    checked={filters.categoriesCheckedState[clickedCategoryIndex]}
+                                    onChange={() => setFilters(
+                                        filters => (
+                                            {
+                                                ...filters,
+                                                categoriesCheckedState: filters.categoriesCheckedState.map((state, index) => index == clickedCategoryIndex ? !state : state),
+                                            }
+                                        )
+                                    )}
+                                />
+                                {category.categoryName}
+                            </label>
+                        ))
+                    )
                 }
             </div>
 

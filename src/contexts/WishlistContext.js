@@ -1,5 +1,6 @@
 import { createContext, useState, useContext } from "react";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "./AuthContext";
 
 export const WishlistContext = createContext();
@@ -21,6 +22,10 @@ export function WishlistProvider({ children }) {
 
         const data = await response.json();
         setWishlist(data.wishlist);
+
+        toast.success("Added to wishlist", {
+            position: "bottom-right"
+        });
     }
 
     async function removeFromWishlist(productId) {
@@ -33,6 +38,10 @@ export function WishlistProvider({ children }) {
         
         const data = await response.json();
         setWishlist(data.wishlist);
+
+        toast.warning("Removed from wishlist", {
+            position: "bottom-right"
+        });
     }
 
     function wishlistHasItem(item) {
@@ -40,8 +49,12 @@ export function WishlistProvider({ children }) {
     }
 
     return (
-        <WishlistContext.Provider value={{ wishlist, addToWishlist, removeFromWishlist, wishlistHasItem }}>
-            { children }
-        </WishlistContext.Provider>
+        <>
+            <WishlistContext.Provider value={{ wishlist, addToWishlist, removeFromWishlist, wishlistHasItem }}>
+                { children }
+            </WishlistContext.Provider>
+            <ToastContainer/>
+        </>
+
     );
 }

@@ -1,5 +1,6 @@
 import { useContext } from "react"
 
+import { Loader } from "../../components/Spinner/Spinner";
 import { ProductsContext } from "../../contexts/ProductsContext";
 import { Product } from "../../components/Product/Product";
 import { ProductsFilter } from "../../components/ProductsFilter/ProductsFilter";
@@ -33,9 +34,13 @@ export function Products() {
                 <h2>Products (showing { filteredProducts.length } of { products.length } plants)</h2>
                 <div className="products__list">
                     {
-                        filteredProducts.map(product => (
-                            <Product key={product.id} product={product} />
-                        ))
+                        filteredProducts.length === 0 ? (
+                            <Loader/>
+                        ) : (
+                            filteredProducts.map(product => (
+                                <Product key={product.id} product={product} />
+                            ))
+                        )
                     }
                 </div>
             </div>

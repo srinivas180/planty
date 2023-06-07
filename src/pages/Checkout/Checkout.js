@@ -1,15 +1,21 @@
 import { useContext, useState } from "react";
+import {useNavigate} from "react-router-dom"
 
 import { CartContext } from "../../contexts/CartContext";
 import { PriceDetails } from "../../components/PriceDetails/PriceDetails";
 import { AddressContext } from "../../contexts/AddressContext";
 
+
 import "./Checkout.css";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Checkout() {
     const { cart } = useContext(CartContext);
     const { addresses } = useContext(AddressContext);
     const [address, setAddress] = useState(addresses[0]);
+    const navigate = useNavigate();
 
     return (
         <>
@@ -82,9 +88,16 @@ export function Checkout() {
 
                         </div>
                     </div>
-                    <button className="button--primary price__checkout">Place Order</button>
+                    <button className="button--primary price__checkout" onClick={() => {
+                            navigate("/")
+                            toast.success("Placed your order successfully", {
+                                position: "bottom-right"
+                            });
+                    }
+                    }>Place Order</button>
                 </div>
             </div>
+            <ToastContainer/>
         </>
     )
 }
