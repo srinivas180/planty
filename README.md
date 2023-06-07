@@ -35,4 +35,4 @@ An e-commerce website for purchasing plants.
 Link: https://planty-99.netlify.app/
 
 ## Demo Video
-
+https://github.com/srinivas180/planty/assets/114345368/f1292ddc-0acb-46c0-a5ab-16f9401e6c45
