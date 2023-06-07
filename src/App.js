@@ -11,6 +11,7 @@ import { Cart } from "./pages/Cart/Cart";
 import { Wishlist } from "./pages/Wishlist/Wishlist";
 import { SingleProduct } from "./components/SingleProduct/SingleProduct";
 import { Profile } from "./pages/Profile/Profile";
+import { Checkout } from "./pages/Checkout/Checkout";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/product/:productId" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
