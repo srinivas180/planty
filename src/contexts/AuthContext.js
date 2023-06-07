@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -6,6 +7,7 @@ export function AuthProvider({ children }) {
     const [encodedToken, setEncodedToken] = useState(localStorage.getItem("encodedToken"));
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
 
     async function loginHandler(userCredentials) {
         const response = await fetch("/api/auth/login", {
@@ -20,6 +22,8 @@ export function AuthProvider({ children }) {
 
         setEncodedToken(encodedToken);
         setUser(foundUser);
+
+        navigate("/products");
     }
 
     async function signupHandler(userCredentials) {
@@ -35,6 +39,8 @@ export function AuthProvider({ children }) {
 
         setEncodedToken(encodedToken);
         setUser(createdUser);
+
+        navigate("/products");
     }
 
     async function logoutHandler() {
@@ -43,6 +49,8 @@ export function AuthProvider({ children }) {
 
         setEncodedToken(null);
         setUser(null);
+
+        navigate("/");
     }
 
     useEffect(() => {
