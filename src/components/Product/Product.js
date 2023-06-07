@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 import { CartContext } from "../../contexts/CartContext";
 import { WishlistContext } from "../../contexts/WishlistContext";
 
@@ -8,6 +9,8 @@ import "./Product.css";
 export function Product({ product }) {
     const { addToCart, cartHasProduct, navigateToCart } = useContext(CartContext);
     const { addToWishlist, removeFromWishlist, wishlistHasItem } = useContext(WishlistContext);
+    const { isLoggedIn } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     return (
         <div className="product__item">
@@ -29,7 +32,11 @@ export function Product({ product }) {
             <div className="product__buttons">
                 <button className="product__button product__button--secondary"
                     onClick={() => {
-                        wishlistHasItem(product) ? removeFromWishlist(product._id) : addToWishlist(product)
+                        if(!isLoggedIn) {
+                            navigate("/login");
+                        } else {
+                            wishlistHasItem(product) ? removeFromWishlist(product._id) : addToWishlist(product)
+                        }
                     }}
                 >
                     {
@@ -37,7 +44,11 @@ export function Product({ product }) {
                     }
                 </button>
                 <button className="product__button product__button--primary" onClick={() => {
-                    cartHasProduct(product) ? navigateToCart() : addToCart(product)
+                    if(!isLoggedIn) {
+                        navigate("/login");
+                    } else {
+                        cartHasProduct(product) ? navigateToCart() : addToCart(product);
+                    }
                 }}>
                     {
                         cartHasProduct(product) ? "Go to cart" : "Add to cart"
