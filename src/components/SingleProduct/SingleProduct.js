@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 import { WishlistContext } from "../../contexts/WishlistContext";
 
+import { Loader } from "../../components/Spinner/Spinner";
+
 import "./SingleProduct.css";
 
 export function SingleProduct() {
@@ -28,7 +30,7 @@ export function SingleProduct() {
     return (
         <>
             { 
-                (product == undefined) ? "Loading" : (
+                (product == undefined) ? <Loader/> : (
                     <div className="cart-item single-product">
                         <img className="cart-item__image" src={product.imageLink} alt={product.altText}/>
                         <div className="cart-item__details single-product__details">
