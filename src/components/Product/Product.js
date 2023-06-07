@@ -6,7 +6,7 @@ import { WishlistContext } from "../../contexts/WishlistContext";
 import "./Product.css";
 
 export function Product({ product }) {
-    const { addToCart, cartHasProduct } = useContext(CartContext);
+    const { addToCart, cartHasProduct, navigateToCart } = useContext(CartContext);
     const { addToWishlist, removeFromWishlist, wishlistHasItem } = useContext(WishlistContext);
 
     return (
@@ -36,7 +36,9 @@ export function Product({ product }) {
                         wishlistHasItem(product) ? "Unwishlist" : "Add to wishlist"
                     }
                 </button>
-                <button className="product__button product__button--primary" onClick={() => addToCart(product)}>
+                <button className="product__button product__button--primary" onClick={() => {
+                    cartHasProduct(product) ? navigateToCart() : addToCart(product)
+                }}>
                     {
                         cartHasProduct(product) ? "Go to cart" : "Add to cart"
                     }

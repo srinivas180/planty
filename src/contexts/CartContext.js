@@ -1,4 +1,5 @@
 import { createContext, useState, useContext } from "react";
+import {useNavigate} from "react-router-dom"
 
 import { AuthContext } from "./AuthContext";
 
@@ -7,6 +8,7 @@ export const CartContext = createContext();
 export function CartProvider({ children }) {
     const [cart, setCart] = useState([]);
     const { encodedToken } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     async function addToCart(product) {
         const response = await fetch("/api/user/cart", {
@@ -56,6 +58,10 @@ export function CartProvider({ children }) {
         return cart.find(item => item.id === product.id)
     }
 
+    function navigateToCart() {
+        navigate("/cart");
+    }
+
     function getItemsPrice() {
         return cart.reduce((totalPrice, currentItem) => 
             totalPrice += Number(currentItem.price) * currentItem.qty, 0);
@@ -70,7 +76,8 @@ export function CartProvider({ children }) {
                         removeFromCart,
                         quantityHandler,
                         getItemsPrice,
-                        cartHasProduct
+                        cartHasProduct,
+                        navigateToCart
                     }
             }>
             { children }
