@@ -21,8 +21,8 @@ export function Header() {
             <nav className="nav">
                 <NavLink className="nav__link" to="/checkout">Checkout</NavLink>
                 <NavLink className="nav__link" to="/products">Products</NavLink>
-                <NavLink className="nav__link" to="/wishlist">Wishlist</NavLink>
-                <NavLink className="nav__link" to="/cart">Cart</NavLink>
+                <NavLink className="nav__link" to={isLoggedIn ? "/wishlist" : "/login"}>Wishlist</NavLink>
+                <NavLink className="nav__link" to={isLoggedIn ? "/cart" : "/login"}>Cart</NavLink>
                 {
                     isLoggedIn ? (
                         <NavLink className="nav__link" to="/profile">Profile</NavLink>
