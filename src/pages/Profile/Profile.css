@@ -14,6 +14,15 @@
   margin-right: 8px;
 }
 
+.address__title {
+  margin: 8px 0;
+  align-items: center;
+}
+
+.add-address {
+  padding: 8px;
+}
+
 .address {
   display: flex;
   flex-direction: column;
@@ -35,6 +44,31 @@
 .address__button {
   flex: 1;
   padding: 8px;
+}
+
+.address-form-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  display: flex;
+}
+
+.address-form {
+  width: 30%;
+}
+
+.address-form__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+.address-form__button {
+  flex: 1;
+  padding: 12px;
+  font-size: 18px;
 }
 
 .logout {
