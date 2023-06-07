@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { WishlistContext } from "../../contexts/WishlistContext";
 import { WishlistItem } from "../../components/WishlistItem/WishlistItem";
@@ -13,7 +13,7 @@ export function Wishlist() {
                 wishlist.length === 0 ? (
                     <div className="container cart--empty">
                         <h2>Your wishlist is empty</h2>
-                        <NavLink className="explore-button" to="/products">Explore products</NavLink>
+                        <Link className="explore-button" to="/products">Explore products</Link>
                     </div>
                 ) : (
                     <div className="products container">

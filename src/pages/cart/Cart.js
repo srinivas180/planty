@@ -4,7 +4,7 @@ import { CartContext } from "../../contexts/CartContext";
 import { CartItem } from "../../components/CartItem/CartItem";
 
 import "./Cart.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function Cart() {
     const {cart, getItemsPrice} = useContext(CartContext);
@@ -16,7 +16,7 @@ export function Cart() {
                 cart.length === 0 ? (
                     <div className="container cart--empty">
                         <h2>Your cart is empty</h2>
-                        <NavLink className="explore-button" to="/products">Explore products</NavLink>
+                        <Link className="explore-button" to="/products">Explore products</Link>
                     </div>
                 ) : (
                     <div className="container row row--center">
