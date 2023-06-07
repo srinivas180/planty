@@ -13,12 +13,17 @@
   grid-area: logo;
 }
 
+.logo__link {
+  text-decoration: none;
+}
+
 .logo__image {
   display: none;
 }
 
 .logo__name {
   font-size: 1.5rem;
+  color: black;
 }
 
 .search {

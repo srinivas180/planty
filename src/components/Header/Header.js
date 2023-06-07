@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
 import { ProductsContext } from "../../contexts/ProductsContext";
@@ -14,10 +14,12 @@ export function Header() {
     return (
         <header className="header">
             <div className="logo">
-                <img className="logo__image" src="" width="50px" alt="" />
-                <h1 className="logo__name">Planty</h1>
+                <Link to="/" className="logo__link">
+                    <h1 className="logo__name">Planty</h1>
+                </Link>
             </div>
             <nav className="nav">
+                <NavLink className="nav__link" to="/checkout">Checkout</NavLink>
                 <NavLink className="nav__link" to="/products">Products</NavLink>
                 <NavLink className="nav__link" to="/wishlist">Wishlist</NavLink>
                 <NavLink className="nav__link" to="/cart">Cart</NavLink>
