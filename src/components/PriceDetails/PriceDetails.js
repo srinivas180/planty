@@ -7,7 +7,7 @@ export function PriceDetails() {
     const itemsPrice = getItemsPrice();
 
     return (
-        <div className="price-details">
+        <div className="price-details w-100 p-20">
             <h2 className="price__heading">Price Details</h2>
 
             <div className="price__split">
@@ -33,8 +33,6 @@ export function PriceDetails() {
             <p className="price__savings">
                 You will save ₹100.00 on this order
             </p>
-
-            <button className="button--primary price__checkout">Checkout</button>
         </div>
     )
 }
