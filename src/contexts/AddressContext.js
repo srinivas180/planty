@@ -18,6 +18,7 @@ export function AddressProvider({ children }) {
     const [addresses, setAddresses] = useState([defaultAddress]);
 
     const addAddress = (address) => {
+        removeAddress(address._id);
         setAddresses(addresses => [...addresses, {_id: uuid(), ...address}]);
     }
 
