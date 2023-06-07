@@ -13,8 +13,8 @@ export function Home() {
             <div className="categories">
                 <ul className="categories__list">
                     {
-                        categories?.map(category => 
-                            <Category key={category.id} category={category} />
+                        categories?.map((category, index) => 
+                            <Category key={category.id} category={category} index={index} />
                         )
                     }
                 </ul>

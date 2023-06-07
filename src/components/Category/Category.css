@@ -1,3 +1,7 @@
+.category__item {
+  cursor: pointer;
+}
+
 .category__image {
   border-radius: 20px;
   width: 100%;
