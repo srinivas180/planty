@@ -30,6 +30,8 @@
 .search__input {
   padding: 12px;
   width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--gray);
 }
 
 .nav {
