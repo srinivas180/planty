@@ -3,64 +3,69 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 :root {
-  --primary: #00875a;
-  --secondary: #c9ffed;
-  --medium-green: #80f8d0;
-  --gray: #bbbbbb;
+    --primary: #00875a;
+    --secondary: #c9ffed;
+    --medium-green: #80f8d0;
+    --gray: #bbbbbb;
 }
 
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
+}
+
+.button {
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    padding: 10px 24px;
+    font-weight: 600;
 }
 
 .button--primary {
-  border: 1px solid var(--secondary);
-  background-color: var(--secondary);
-  border-radius: 8px;
-  color: var(--primary);
-  cursor: pointer;
+    border: 1px solid var(--secondary);
+    background-color: var(--secondary);
+    color: var(--primary);
+    cursor: pointer;
 }
 
 .button--secondary {
-  border: 1px solid var(--primary);
-  background-color: white;
-  border-radius: 8px;
-  color: var(--primary);
-  cursor: pointer;
+    border: 1px solid var(--primary);
+    background-color: white;
+    color: var(--primary);
+    cursor: pointer;
 }
 
 .button--primary:hover,
 .button--secondary:hover {
-  background-color: var(--primary);
-  color: white;
+    background-color: var(--primary);
+    color: white;
 }
 
 .button--secondary:disabled {
-  border: 1px solid var(--medium-green);
-  background-color: white;
-  border-radius: 8px;
-  color: var(--primary);
-  cursor: pointer;
+    border: 1px solid var(--medium-green);
+    background-color: white;
+    color: var(--primary);
+    cursor: pointer;
 }
 
 .button--secondary:disabled:hover {
-  border: 1px solid var(--medium-green);
-  cursor: default;
+    border: 1px solid var(--medium-green);
+    cursor: default;
 }
 
 .button--text {
-  cursor: pointer;
-  border: none;
-  background-color: white;
-  color: var(--primary);
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    color: var(--primary);
 }
