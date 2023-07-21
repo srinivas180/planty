@@ -1,6 +1,6 @@
 import { createContext, useState, useContext } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "./AuthContext";
 
 export const WishlistContext = createContext();
@@ -13,10 +13,10 @@ export function WishlistProvider({ children }) {
         const response = await fetch("/api/user/wishlist", {
             method: "POST",
             headers: {
-                "authorization": encodedToken,
+                authorization: encodedToken,
             },
             body: JSON.stringify({
-                product
+                product,
             }),
         });
 
@@ -24,7 +24,7 @@ export function WishlistProvider({ children }) {
         setWishlist(data.wishlist);
 
         toast.success("Added to wishlist", {
-            position: "bottom-right"
+            position: "bottom-right",
         });
     }
 
@@ -32,29 +32,35 @@ export function WishlistProvider({ children }) {
         const response = await fetch(`/api/user/wishlist/${productId}`, {
             method: "DELETE",
             headers: {
-                "authorization": encodedToken,
+                authorization: encodedToken,
             },
         });
-        
+
         const data = await response.json();
         setWishlist(data.wishlist);
 
         toast.warning("Removed from wishlist", {
-            position: "bottom-right"
+            position: "bottom-right",
         });
     }
 
     function wishlistHasItem(item) {
-        return wishlist.find(product => product.id === item.id);
+        return wishlist.find((product) => product.id === item.id);
     }
 
     return (
         <>
-            <WishlistContext.Provider value={{ wishlist, addToWishlist, removeFromWishlist, wishlistHasItem }}>
-                { children }
+            <WishlistContext.Provider
+                value={{
+                    wishlist,
+                    addToWishlist,
+                    removeFromWishlist,
+                    wishlistHasItem,
+                }}
+            >
+                {children}
             </WishlistContext.Provider>
-            <ToastContainer/>
+            <ToastContainer />
         </>
-
     );
 }
