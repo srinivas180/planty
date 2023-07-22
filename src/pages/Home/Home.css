@@ -1,6 +1,5 @@
 .container {
     margin: 0 auto;
-    max-width: 1000px;
     padding: 12px 24px;
 }
 
@@ -35,7 +34,11 @@
 }
 
 .categories-container {
-    width: 50%;
+    /* width: 50%; */
+}
+
+.categories {
+    margin-top: 100px;
 }
 
 .categories__list {
@@ -57,6 +60,6 @@
 @media screen and (min-width: 768px) {
     .categories__list {
         column-gap: 48px;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }

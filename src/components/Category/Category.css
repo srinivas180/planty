@@ -1,17 +1,34 @@
 .category__item {
-  cursor: pointer;
+    cursor: pointer;
+    background-color: var(--blue-gray);
+    color: white;
+    padding: 20px 20px;
+    border-radius: 0 20px 0 20px;
+    text-align: center;
+    border: 1px solid #5ae9b9;
+    position: relative;
+}
+
+.category__image-wrapper {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    top: -64px;
+    left: 94px;
 }
 
 .category__image {
-  border-radius: 20px;
-  width: 100%;
+    border-radius: 50%;
+    padding: 8px;
+    width: 100px;
 }
 
 .category__heading {
-  font-size: 1.4rem;
-  margin: 12px 0 8px 0;
+    font-size: 1.4rem;
+    margin: 44px 0 8px 0;
+    color: var(--medium-green);
 }
 
 .category__description {
-  margin: 0 0 32px 0;
+    line-height: 1.7;
 }
