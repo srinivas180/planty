@@ -81,3 +81,8 @@ body {
     padding: 10px 24px;
     border-radius: 14px;
 }
+
+.link--primary:hover {
+    background-color: var(--primary);
+    color: white;
+}

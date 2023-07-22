@@ -3,6 +3,7 @@ import { Loader } from "../../components/Spinner/Spinner";
 import "./Home.css";
 import { CategoriesContext } from "../../contexts/CategoriesContext";
 import { Category } from "../../components/Category/Category";
+import { Link } from "react-router-dom";
 
 export function Home() {
     const { categories } = useContext(CategoriesContext);
@@ -19,9 +20,12 @@ export function Home() {
                         facilisis sanctus amet accusam ut elitr esse sadipscing
                         kasd velit sea diam et et.
                     </p>
-                    <button className="button button--primary hero__button">
+                    <Link
+                        to="/products"
+                        className="link--decor-none link--primary hero__link"
+                    >
                         Shop
-                    </button>
+                    </Link>
                 </div>
                 <div className="hero__right">
                     <img

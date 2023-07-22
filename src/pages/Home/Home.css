@@ -24,7 +24,7 @@
     margin-top: 6px;
 }
 
-.hero__button {
+.hero__link {
     border: 1px solid #5ae9b9;
     border-radius: 0 14px 0 14px;
     background-color: var(--medium-green);
