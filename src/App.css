@@ -70,3 +70,14 @@ body {
     background-color: white;
     color: var(--primary);
 }
+
+.link--decor-none {
+    text-decoration: none;
+}
+
+.link--primary {
+    background-color: var(--secondary);
+    color: var(--primary);
+    padding: 10px 24px;
+    border-radius: 14px;
+}
