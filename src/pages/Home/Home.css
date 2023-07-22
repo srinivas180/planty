@@ -64,5 +64,6 @@
     .categories__list {
         column-gap: 48px;
         grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
     }
 }
