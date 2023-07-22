@@ -26,9 +26,16 @@ body {
 
 .button {
     border: none;
-    border-radius: 14px;
+    border-radius: 10px;
     cursor: pointer;
+    /* padding: 10px 24px; */
+}
+
+.button--padding {
     padding: 10px 24px;
+}
+
+.button--semi-bold {
     font-weight: 600;
 }
 
