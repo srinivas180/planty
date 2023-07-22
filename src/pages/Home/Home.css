@@ -6,6 +6,8 @@
 .hero {
     display: flex;
     align-items: center;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .hero__left,
@@ -25,6 +27,7 @@
 .hero__button {
     border: 1px solid #5ae9b9;
     border-radius: 0 14px 0 14px;
+    background-color: var(--medium-green);
 }
 
 .hero__image {
@@ -38,7 +41,7 @@
 }
 
 .categories {
-    margin-top: 100px;
+    margin-top: 92px;
 }
 
 .categories__list {
