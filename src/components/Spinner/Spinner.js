@@ -1,8 +1,8 @@
 import { Circles } from "react-loader-spinner";
 import React from "react";
-export function Loader()
-{
-    return(
+
+export function Loader() {
+    return (
         <Circles
             height="80"
             width="80"
@@ -12,5 +12,5 @@ export function Loader()
             wrapperClass=""
             visible={true}
         />
-    )
+    );
 }
