@@ -10,38 +10,46 @@ export function WishlistProvider({ children }) {
     const { encodedToken } = useContext(AuthContext);
 
     async function addToWishlist(product) {
-        const response = await fetch("/api/user/wishlist", {
-            method: "POST",
-            headers: {
-                authorization: encodedToken,
-            },
-            body: JSON.stringify({
-                product,
-            }),
-        });
+        try {
+            const response = await fetch("/api/user/wishlist", {
+                method: "POST",
+                headers: {
+                    authorization: encodedToken,
+                },
+                body: JSON.stringify({
+                    product,
+                }),
+            });
 
-        const data = await response.json();
-        setWishlist(data.wishlist);
+            const data = await response.json();
+            setWishlist(data.wishlist);
 
-        toast.success("Added to wishlist", {
-            position: "bottom-right",
-        });
+            toast.success("Added to wishlist", {
+                position: "bottom-right",
+            });
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     async function removeFromWishlist(productId) {
-        const response = await fetch(`/api/user/wishlist/${productId}`, {
-            method: "DELETE",
-            headers: {
-                authorization: encodedToken,
-            },
-        });
+        try {
+            const response = await fetch(`/api/user/wishlist/${productId}`, {
+                method: "DELETE",
+                headers: {
+                    authorization: encodedToken,
+                },
+            });
 
-        const data = await response.json();
-        setWishlist(data.wishlist);
+            const data = await response.json();
+            setWishlist(data.wishlist);
 
-        toast.warning("Removed from wishlist", {
-            position: "bottom-right",
-        });
+            toast.warning("Removed from wishlist", {
+                position: "bottom-right",
+            });
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     function wishlistHasItem(item) {

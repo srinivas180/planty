@@ -63,13 +63,18 @@ export function ProductsProvider({ children }) {
 
     async function getProducts() {
         setIsLoading(true);
-        const response = await fetch("/api/products");
+        try {
+            const response = await fetch("/api/products");
 
-        if (response.status === 200) {
-            const json = await response.json();
-            setProducts(json.products);
+            if (response.status === 200) {
+                const json = await response.json();
+                setProducts(json.products);
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsLoading(false);
         }
-        setIsLoading(false);
     }
 
     useEffect(() => {

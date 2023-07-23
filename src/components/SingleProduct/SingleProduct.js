@@ -20,10 +20,18 @@ export function SingleProduct() {
     const [isLoading, setIsLoading] = useState(true);
 
     async function fetchProduct() {
-        const response = await fetch(`/api/products/${productId}`);
-        const { product } = await response.json();
-        setProduct(product);
-        setIsLoading(false);
+        try {
+            const response = await fetch(`/api/products/${productId}`);
+
+            if (response.status === 200) {
+                const { product } = await response.json();
+                setProduct(product);
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     useEffect(() => {

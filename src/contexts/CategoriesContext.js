@@ -8,12 +8,17 @@ export function CategoriesProvider({ children }) {
 
     async function getCategories() {
         setIsLoading(true);
-        const response = await fetch("api/categories");
-        if (response.status === 200) {
-            const json = await response.json();
-            setCategories(json.categories);
+        try {
+            const response = await fetch("api/categories");
+            if (response.status === 200) {
+                const json = await response.json();
+                setCategories(json.categories);
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsLoading(false);
         }
-        setIsLoading(false);
     }
 
     useEffect(() => {
