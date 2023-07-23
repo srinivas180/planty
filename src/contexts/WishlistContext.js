@@ -21,12 +21,14 @@ export function WishlistProvider({ children }) {
                 }),
             });
 
-            const data = await response.json();
-            setWishlist(data.wishlist);
+            if (response.status === 201) {
+                const data = await response.json();
+                setWishlist(data.wishlist);
 
-            toast.success("Added to wishlist", {
-                position: "bottom-right",
-            });
+                toast.success("Added to wishlist", {
+                    position: "bottom-right",
+                });
+            }
         } catch (error) {
             console.error(error);
         }
@@ -41,12 +43,14 @@ export function WishlistProvider({ children }) {
                 },
             });
 
-            const data = await response.json();
-            setWishlist(data.wishlist);
+            if (response.status === 200) {
+                const data = await response.json();
+                setWishlist(data.wishlist);
 
-            toast.warning("Removed from wishlist", {
-                position: "bottom-right",
-            });
+                toast.warning("Removed from wishlist", {
+                    position: "bottom-right",
+                });
+            }
         } catch (error) {
             console.error(error);
         }

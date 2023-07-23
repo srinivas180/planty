@@ -25,11 +25,13 @@ export function CartProvider({ children }) {
                 }),
             });
 
-            const data = await response.json();
-            setCart(data.cart);
-            toast.success("Added to cart", {
-                position: "bottom-right",
-            });
+            if (response.status === 201) {
+                const data = await response.json();
+                setCart(data.cart);
+                toast.success("Added to cart", {
+                    position: "bottom-right",
+                });
+            }
         } catch (error) {
             console.error(error);
         }
@@ -44,11 +46,13 @@ export function CartProvider({ children }) {
                 },
             });
 
-            const data = await response.json();
-            setCart(data.cart);
-            toast.warning("Removed from cart", {
-                position: "bottom-right",
-            });
+            if (response.status === 200) {
+                const data = await response.json();
+                setCart(data.cart);
+                toast.warning("Removed from cart", {
+                    position: "bottom-right",
+                });
+            }
         } catch (error) {
             console.error(error);
         }
@@ -68,8 +72,10 @@ export function CartProvider({ children }) {
                 }),
             });
 
-            const data = await response.json();
-            setCart(data.cart);
+            if (response.status === 200) {
+                const data = await response.json();
+                setCart(data.cart);
+            }
         } catch (error) {
             console.error(error);
         }

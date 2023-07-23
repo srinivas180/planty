@@ -18,15 +18,17 @@ export function AuthProvider({ children }) {
                 body: JSON.stringify(userCredentials),
             });
 
-            const { encodedToken, foundUser } = await response.json();
+            if (response.status === 200) {
+                const { encodedToken, foundUser } = await response.json();
 
-            localStorage.setItem("encodedToken", encodedToken);
-            localStorage.setItem("user", JSON.stringify(foundUser));
+                localStorage.setItem("encodedToken", encodedToken);
+                localStorage.setItem("user", JSON.stringify(foundUser));
 
-            setEncodedToken(encodedToken);
-            setUser(foundUser);
+                setEncodedToken(encodedToken);
+                setUser(foundUser);
 
-            navigate("/products");
+                navigate("/products");
+            }
         } catch (error) {
             console.error(error);
         }
@@ -39,15 +41,17 @@ export function AuthProvider({ children }) {
                 body: JSON.stringify(userCredentials),
             });
 
-            const { encodedToken, createdUser } = await response.json();
+            if (response.status === 201) {
+                const { encodedToken, createdUser } = await response.json();
 
-            localStorage.setItem("encodedToken", encodedToken);
-            localStorage.setItem("user", JSON.stringify(createdUser));
+                localStorage.setItem("encodedToken", encodedToken);
+                localStorage.setItem("user", JSON.stringify(createdUser));
 
-            setEncodedToken(encodedToken);
-            setUser(createdUser);
+                setEncodedToken(encodedToken);
+                setUser(createdUser);
 
-            navigate("/products");
+                navigate("/products");
+            }
         } catch (error) {
             console.error(error);
         }
