@@ -43,13 +43,11 @@ export function Products() {
                     {products.length} plants)
                 </h2>
                 <div className="products__list">
-                    {filteredProducts.length === 0 ? (
-                        <Loader />
-                    ) : (
-                        filteredProducts.map((product) => (
-                            <Product key={product.id} product={product} />
-                        ))
-                    )}
+                    {filteredProducts.length === 0
+                        ? "No products available for selected filters."
+                        : filteredProducts.map((product) => (
+                              <Product key={product.id} product={product} />
+                          ))}
                 </div>
             </div>
         </div>
