@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { Circles } from "react-spinner-loader";
 
 import { CategoriesContext } from "../../contexts/CategoriesContext";
 import { ProductsContext } from "../../contexts/ProductsContext";
@@ -13,39 +12,33 @@ export function ProductsFilter() {
             {/* Category Filter */}
             <div className="filters__container">
                 <h3 className="filters__heading">Category</h3>
-                {
-                    categories.length === 0 ? (
-                        <Circles
-                            height="80"
-                            width="80"
-                            color="#4fa94d"
-                            ariaLabel="circles-loading"
-                            wrapperStyle={{}}
-                            wrapperClass=""
-                            visible={true}
+                {categories.map((category, clickedCategoryIndex) => (
+                    <label key={category.id} className="filters__label">
+                        <input
+                            className="filters__input"
+                            type="checkbox"
+                            value={category.categoryName}
+                            checked={
+                                filters.categoriesCheckedState[
+                                    clickedCategoryIndex
+                                ]
+                            }
+                            onChange={() =>
+                                setFilters((filters) => ({
+                                    ...filters,
+                                    categoriesCheckedState:
+                                        filters.categoriesCheckedState.map(
+                                            (state, index) =>
+                                                index == clickedCategoryIndex
+                                                    ? !state
+                                                    : state
+                                        ),
+                                }))
+                            }
                         />
-                    ) : (
-                        categories.map((category, clickedCategoryIndex) => (
-                            <label key={category.id} className="filters__label">
-                                <input
-                                    className="filters__input"
-                                    type="checkbox"
-                                    value={category.categoryName}
-                                    checked={filters.categoriesCheckedState[clickedCategoryIndex]}
-                                    onChange={() => setFilters(
-                                        filters => (
-                                            {
-                                                ...filters,
-                                                categoriesCheckedState: filters.categoriesCheckedState.map((state, index) => index == clickedCategoryIndex ? !state : state),
-                                            }
-                                        )
-                                    )}
-                                />
-                                {category.categoryName}
-                            </label>
-                        ))
-                    )
-                }
+                        {category.categoryName}
+                    </label>
+                ))}
             </div>
 
             {/* Rating Filter */}
@@ -59,28 +52,31 @@ export function ProductsFilter() {
                     step="1"
                     defaultValue="1"
                     value={filters.rating}
-                    onChange={
-                        (event) => setFilters(
-                            (filters) => (
-                                {...filters, rating: event.target.value}
-                            ))
+                    onChange={(event) =>
+                        setFilters((filters) => ({
+                            ...filters,
+                            rating: event.target.value,
+                        }))
                     }
-                    />
+                />
             </div>
 
             {/* Price Sort Filter */}
             <div className="filters__container">
                 <h3 className="filters__heading">Sort By</h3>
                 <label className="filters__label">
-                    <input 
+                    <input
                         className="filters__input"
                         type="radio"
                         value="SORT_LOW_TO_HIGH"
                         name="rating"
                         checked={filters.sortLowToHigh}
-                        onChange={
-                            () => setFilters(
-                                filters => ({...filters, sortLowToHigh: true, sortHighToLow: false}))
+                        onChange={() =>
+                            setFilters((filters) => ({
+                                ...filters,
+                                sortLowToHigh: true,
+                                sortHighToLow: false,
+                            }))
                         }
                     />
                     Price - Low to High
@@ -92,9 +88,12 @@ export function ProductsFilter() {
                         value="SORT_HIGH_TO_LOW"
                         name="rating"
                         checked={filters.sortHighToLow}
-                        onChange={
-                            () => setFilters(
-                                filters => ({...filters, sortHighToLow: true, sortLowToHigh:false}))
+                        onChange={() =>
+                            setFilters((filters) => ({
+                                ...filters,
+                                sortHighToLow: true,
+                                sortLowToHigh: false,
+                            }))
                         }
                     />
                     Price - High to Low
