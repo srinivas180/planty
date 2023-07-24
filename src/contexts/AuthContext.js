@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -27,10 +28,17 @@ export function AuthProvider({ children }) {
                 setEncodedToken(encodedToken);
                 setUser(foundUser);
 
+                toast.success("successfully logged in.", {
+                    position: "bottom-right",
+                });
+
                 navigate("/products");
             }
         } catch (error) {
             console.error(error);
+            toast.error("Some error occurred while logging in.", {
+                position: "bottom-right",
+            });
         }
     }
 
@@ -50,10 +58,17 @@ export function AuthProvider({ children }) {
                 setEncodedToken(encodedToken);
                 setUser(createdUser);
 
+                toast.success("successfully signed up.", {
+                    position: "bottom-right",
+                });
+
                 navigate("/products");
             }
         } catch (error) {
             console.error(error);
+            toast.error("Some error occurred while signing up.", {
+                position: "bottom-right",
+            });
         }
     }
 
@@ -63,6 +78,10 @@ export function AuthProvider({ children }) {
 
         setEncodedToken(null);
         setUser(null);
+
+        toast.success("successfully logged out.", {
+            position: "bottom-right",
+        });
 
         navigate("/");
     }

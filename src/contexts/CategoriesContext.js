@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export const CategoriesContext = createContext();
 
@@ -16,6 +17,9 @@ export function CategoriesProvider({ children }) {
             }
         } catch (error) {
             console.error(error);
+            toast.error("Some error occurred. Fetching categories failed.", {
+                position: "bottom-right",
+            });
         } finally {
             setIsLoading(false);
         }

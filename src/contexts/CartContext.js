@@ -1,10 +1,10 @@
 import { createContext, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import { AuthContext } from "./AuthContext";
+
+import "react-toastify/dist/ReactToastify.css";
 
 export const CartContext = createContext();
 
@@ -34,6 +34,9 @@ export function CartProvider({ children }) {
             }
         } catch (error) {
             console.error(error);
+            toast.error("Some error occurred. Cannot add to cart.", {
+                position: "bottom-right",
+            });
         }
     }
 
@@ -55,6 +58,9 @@ export function CartProvider({ children }) {
             }
         } catch (error) {
             console.error(error);
+            toast.error("Some error occurred. Cannot remove from cart.", {
+                position: "bottom-right",
+            });
         }
     }
 
@@ -75,9 +81,18 @@ export function CartProvider({ children }) {
             if (response.status === 200) {
                 const data = await response.json();
                 setCart(data.cart);
+                toast.success(`quantity ${type}`, {
+                    position: "bottom-right",
+                });
             }
         } catch (error) {
             console.error(error);
+            toast.error(
+                "Some error occurred. Cannot increase/decrease quantity.",
+                {
+                    position: "bottom-right",
+                }
+            );
         }
     }
 

@@ -1,4 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
+import { toast } from "react-toastify";
+
 import { CategoriesContext } from "./CategoriesContext";
 
 export const ProductsContext = createContext();
@@ -72,6 +74,9 @@ export function ProductsProvider({ children }) {
             }
         } catch (error) {
             console.error(error);
+            toast.error("Some error occurred. Fetching products failed.", {
+                position: "bottom-right",
+            });
         } finally {
             setIsLoading(false);
         }

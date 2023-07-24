@@ -1,7 +1,9 @@
 import { createContext, useState, useContext } from "react";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 import { AuthContext } from "./AuthContext";
+
+import "react-toastify/dist/ReactToastify.css";
 
 export const WishlistContext = createContext();
 
@@ -31,6 +33,9 @@ export function WishlistProvider({ children }) {
             }
         } catch (error) {
             console.error(error);
+            toast.error("Some error occurred. Cannot add to wishlist.", {
+                position: "bottom-right",
+            });
         }
     }
 
@@ -53,6 +58,9 @@ export function WishlistProvider({ children }) {
             }
         } catch (error) {
             console.error(error);
+            toast.error("Some error occurred. Cannot remove from wishlist.", {
+                position: "bottom-right",
+            });
         }
     }
 
