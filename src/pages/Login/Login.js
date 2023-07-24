@@ -36,7 +36,10 @@ export function Login() {
                         Forgot password
                     </NavLink>
                 </div>
-                <button className="button--primary form__submit" type="submit">
+                <button
+                    className="button button--primary form__submit"
+                    type="submit"
+                >
                     Login
                 </button>
                 <button

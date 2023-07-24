@@ -68,7 +68,7 @@ export function SingleProduct() {
                         </div>
                         <div className="cart-item__buttons">
                             <button
-                                className="cart-item__button button--secondary"
+                                className="cart-item__button button button--secondary"
                                 onClick={() => {
                                     cartHasProduct(product)
                                         ? navigateToCart()
@@ -80,7 +80,7 @@ export function SingleProduct() {
                                     : "Add to cart"}
                             </button>
                             <button
-                                className="cart-item__button button--secondary"
+                                className="cart-item__button button button--secondary"
                                 onClick={() => {
                                     wishlistHasItem(product)
                                         ? removeFromWishlist(product._id)

@@ -86,7 +86,7 @@ export function Checkout() {
                         </div>
                     </div>
                     <button
-                        className="button--primary price__checkout"
+                        className="button button--primary price__checkout"
                         onClick={() => {
                             navigate("/");
                             toast.success("Placed your order successfully", {
