@@ -69,41 +69,53 @@ export function Profile() {
                                 Add Address
                             </button>
                         </div>
-                        {addresses.map((address) => (
-                            <div className="address">
-                                <h4 className="address__subheading">
-                                    {address.title}
-                                </h4>
-                                <div>
-                                    {address.houseNo}, Ring Road, Sampath Nagar
-                                </div>
-                                <div>{address.colony}</div>
-                                <div>
-                                    {address.city}, {address.state} -{" "}
-                                    {address.pinCode}
-                                </div>
-                                <div>{address.country}</div>
-                                <div className="address__buttons">
-                                    <button
-                                        className="button button--secondary address__button"
-                                        onClick={() => {
-                                            setShowAddressForm(true);
-                                            setAddress(address);
-                                        }}
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        className="button button--secondary address__button"
-                                        onClick={() =>
-                                            removeAddress(address._id)
-                                        }
-                                    >
-                                        Remove
-                                    </button>
-                                </div>
-                            </div>
-                        ))}
+                        {addresses.length === 0 ? (
+                            <>
+                                <p>No addresses available to show.</p>
+                                <p>
+                                    Click on 'add address' to add new address.
+                                </p>
+                            </>
+                        ) : (
+                            <>
+                                {addresses.map((address) => (
+                                    <div className="address">
+                                        <h4 className="address__subheading">
+                                            {address.title}
+                                        </h4>
+                                        <div>
+                                            {address.houseNo}, Ring Road,
+                                            Sampath Nagar
+                                        </div>
+                                        <div>{address.colony}</div>
+                                        <div>
+                                            {address.city}, {address.state} -{" "}
+                                            {address.pinCode}
+                                        </div>
+                                        <div>{address.country}</div>
+                                        <div className="address__buttons">
+                                            <button
+                                                className="button button--secondary address__button"
+                                                onClick={() => {
+                                                    setShowAddressForm(true);
+                                                    setAddress(address);
+                                                }}
+                                            >
+                                                Edit
+                                            </button>
+                                            <button
+                                                className="button button--secondary address__button"
+                                                onClick={() =>
+                                                    removeAddress(address._id)
+                                                }
+                                            >
+                                                Remove
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </>
+                        )}
                         <button
                             className="button button--primary logout"
                             onClick={() => logoutHandler()}
