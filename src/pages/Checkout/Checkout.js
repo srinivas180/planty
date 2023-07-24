@@ -21,30 +21,35 @@ export function Checkout() {
             <div className="checkout container row row--center">
                 {/* Address Options */}
                 <div>
-                    {addresses.map((address, index) => (
-                        <div className="checkout__address">
-                            <label className="address-options">
-                                <input
-                                    type="radio"
-                                    name="address-input"
-                                    onChange={() => setAddress(address)}
-                                    defaultChecked={index === 0 ? true : false}
-                                />
-                                <h4 className="checkout__address-title">
-                                    {address.title}
-                                </h4>
-                            </label>
-                            <div className="address">
-                                {address.houseNo}, Ring Road, Sampath Nagar
-                                {address.colony}
-                                <div>
-                                    {address.city}, {address.state} -{" "}
-                                    {address.pinCode}
-                                </div>
-                                <div>{address.country}</div>
-                            </div>
-                        </div>
-                    ))}
+                    <h2>Select Address</h2>
+                    {addresses.length === 0
+                        ? "No addresses available."
+                        : addresses.map((address, index) => (
+                              <div className="checkout__address">
+                                  <label className="address-options">
+                                      <input
+                                          type="radio"
+                                          name="address-input"
+                                          onChange={() => setAddress(address)}
+                                          defaultChecked={
+                                              index === 0 ? true : false
+                                          }
+                                      />
+                                      <h4 className="checkout__address-title">
+                                          {address.title}
+                                      </h4>
+                                  </label>
+                                  <div className="address">
+                                      {address.houseNo}, Ring Road, Sampath
+                                      Nagar, {address.colony}
+                                      <div>
+                                          {address.city}, {address.state} -{" "}
+                                          {address.pinCode}
+                                      </div>
+                                      <div>{address.country}</div>
+                                  </div>
+                              </div>
+                          ))}
                 </div>
 
                 <div>
@@ -73,18 +78,26 @@ export function Checkout() {
                     <PriceDetails />
 
                     {/* Delivery to */}
+
                     <div className="p-20 delivery-address">
                         <h2 className="order__heading">Delivery to</h2>
                         <div className="address">
-                            {address.houseNo}, Ring Road, Sampath Nagar
-                            {address.colony}
-                            <div>
-                                {address.city}, {address.state} -{" "}
-                                {address.pinCode}
-                            </div>
-                            <div>{address.country}</div>
+                            {addresses.length === 0 ? (
+                                "No addresses available. Add an address to place order."
+                            ) : (
+                                <>
+                                    {address.houseNo}, Ring Road, Sampath Nagar,{" "}
+                                    {address.colony}
+                                    <div>
+                                        {address.city}, {address.state} -{" "}
+                                        {address.pinCode}
+                                    </div>
+                                    <div>{address.country}</div>
+                                </>
+                            )}
                         </div>
                     </div>
+
                     <button
                         className="button button--primary price__checkout"
                         onClick={() => {
