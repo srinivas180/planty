@@ -43,7 +43,9 @@ export function ProductsFilter() {
 
             {/* Rating Filter */}
             <div className="filters__container">
-                <h3 className="filters__heading">Rating</h3>
+                <h3 className="filters__heading">
+                    Rating ({filters.rating} and above)
+                </h3>
                 <input
                     className="filters__input input__range"
                     type="range"
