@@ -42,14 +42,12 @@ body {
     border: 1px solid var(--secondary);
     background-color: var(--secondary);
     color: var(--primary);
-    cursor: pointer;
 }
 
 .button--secondary {
     border: 1px solid var(--primary);
     background-color: white;
     color: var(--primary);
-    cursor: pointer;
 }
 
 .button--primary:hover,
@@ -71,8 +69,6 @@ body {
 }
 
 .button--text {
-    cursor: pointer;
-    border: none;
     background-color: white;
     color: var(--primary);
 }
