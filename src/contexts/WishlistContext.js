@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "./AuthContext";
 
@@ -61,18 +61,15 @@ export function WishlistProvider({ children }) {
     }
 
     return (
-        <>
-            <WishlistContext.Provider
-                value={{
-                    wishlist,
-                    addToWishlist,
-                    removeFromWishlist,
-                    wishlistHasItem,
-                }}
-            >
-                {children}
-            </WishlistContext.Provider>
-            <ToastContainer />
-        </>
+        <WishlistContext.Provider
+            value={{
+                wishlist,
+                addToWishlist,
+                removeFromWishlist,
+                wishlistHasItem,
+            }}
+        >
+            {children}
+        </WishlistContext.Provider>
     );
 }

@@ -1,15 +1,14 @@
 import { useContext, useState } from "react";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 import { CartContext } from "../../contexts/CartContext";
 import { PriceDetails } from "../../components/PriceDetails/PriceDetails";
 import { AddressContext } from "../../contexts/AddressContext";
 
-
 import "./Checkout.css";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function Checkout() {
     const { cart } = useContext(CartContext);
@@ -22,30 +21,30 @@ export function Checkout() {
             <div className="checkout container row row--center">
                 {/* Address Options */}
                 <div>
-                    {
-                        addresses.map((address, index) => (
-                            <div className="checkout__address">
-                                <label className="address-options">
-                                    <input type="radio" name="address-input" onChange={()=> setAddress(address)} defaultChecked={index === 0 ? true : false}/>
-                                    <h4 className="checkout__address-title">{ address.title }</h4>
-                                </label>
-                                <div className="address">
-
-                                        {address.houseNo}, Ring Road, Sampath Nagar
-
-
-                                        {address.colony}
-                                    <div>
-                                        {address.city}, {address.state} - {address.pinCode}
-                                    </div>
-                                    <div>
-                                        {address.country}
-                                    </div>
+                    {addresses.map((address, index) => (
+                        <div className="checkout__address">
+                            <label className="address-options">
+                                <input
+                                    type="radio"
+                                    name="address-input"
+                                    onChange={() => setAddress(address)}
+                                    defaultChecked={index === 0 ? true : false}
+                                />
+                                <h4 className="checkout__address-title">
+                                    {address.title}
+                                </h4>
+                            </label>
+                            <div className="address">
+                                {address.houseNo}, Ring Road, Sampath Nagar
+                                {address.colony}
+                                <div>
+                                    {address.city}, {address.state} -{" "}
+                                    {address.pinCode}
                                 </div>
+                                <div>{address.country}</div>
                             </div>
-                            
-                        ))
-                    }
+                        </div>
+                    ))}
                 </div>
 
                 <div>
@@ -56,16 +55,18 @@ export function Checkout() {
                         <div className="order__split">
                             <div className="order__item">
                                 <p className="order__item-title">Item</p>
-                                <p className="order__quantity-title">Quantity</p>
+                                <p className="order__quantity-title">
+                                    Quantity
+                                </p>
                             </div>
-                            {
-                                cart.map(item => (
-                                    <div className="order__item">
-                                        <p className="order__attribute">{ item.title }</p>
-                                        <p className="order__value">{ item.qty }</p>
-                                    </div>
-                                ))
-                            }
+                            {cart.map((item) => (
+                                <div className="order__item">
+                                    <p className="order__attribute">
+                                        {item.title}
+                                    </p>
+                                    <p className="order__value">{item.qty}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
@@ -77,27 +78,26 @@ export function Checkout() {
                         <div className="address">
                             {address.houseNo}, Ring Road, Sampath Nagar
                             {address.colony}
-                            
                             <div>
-                                {address.city}, {address.state} - {address.pinCode}
+                                {address.city}, {address.state} -{" "}
+                                {address.pinCode}
                             </div>
-
-                            <div>
-                                {address.country}
-                            </div>
-
+                            <div>{address.country}</div>
                         </div>
                     </div>
-                    <button className="button--primary price__checkout" onClick={() => {
-                            navigate("/")
+                    <button
+                        className="button--primary price__checkout"
+                        onClick={() => {
+                            navigate("/");
                             toast.success("Placed your order successfully", {
-                                position: "bottom-right"
+                                position: "bottom-right",
                             });
-                    }
-                    }>Place Order</button>
+                        }}
+                    >
+                        Place Order
+                    </button>
                 </div>
             </div>
-            <ToastContainer/>
         </>
-    )
+    );
 }
