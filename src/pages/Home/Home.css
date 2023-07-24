@@ -66,4 +66,20 @@
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 1fr;
     }
+
+    .banner {
+        width: 80%;
+        margin: 100px auto;
+        display: flex;
+        align-items: center;
+        gap: 36px;
+    }
+
+    .banner__image {
+        width: 50%;
+    }
+
+    .banner__text {
+        line-height: 1.8;
+    }
 }

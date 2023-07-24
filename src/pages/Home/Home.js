@@ -55,6 +55,21 @@ export function Home() {
                             </ul>
                         </div>
                     </div>
+                    <div className="banner">
+                        <img
+                            src="https://res.cloudinary.com/dt6nk7xus/image/upload/v1690005767/planty/aboutcms1_l9kfkp.png"
+                            alt=""
+                            className="banner__image"
+                        />
+
+                        <p className="banner__text">
+                            Et laoreet dolore eirmod magna clita eirmod dolor.
+                            Nonummy et rebum rebum ipsum et gubergren dolores
+                            sed invidunt euismod odio dolor. Exerci facilisi et.
+                            Nobis facilisis sanctus amet accusam ut elitr esse
+                            sadipscing kasd velit sea diam et et.
+                        </p>
+                    </div>
                 </div>
             )}
         </>
