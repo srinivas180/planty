@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
+import { AuthContext } from "../../contexts/AuthContext";
 import { CartContext } from "../../contexts/CartContext";
 import { WishlistContext } from "../../contexts/WishlistContext";
 
@@ -9,9 +10,11 @@ import { Loader } from "../../components/Spinner/Spinner";
 import "./SingleProduct.css";
 
 export function SingleProduct() {
+    const navigate = useNavigate();
     const { productId } = useParams();
     const [product, setProduct] = useState();
 
+    const { isLoggedIn } = useContext(AuthContext);
     const { addToCart, cartHasProduct, navigateToCart } =
         useContext(CartContext);
     const { addToWishlist, removeFromWishlist, wishlistHasItem } =
@@ -70,9 +73,13 @@ export function SingleProduct() {
                             <button
                                 className="cart-item__button button button--secondary"
                                 onClick={() => {
-                                    cartHasProduct(product)
-                                        ? navigateToCart()
-                                        : addToCart(product);
+                                    if (!isLoggedIn) {
+                                        navigate("/login");
+                                    } else {
+                                        cartHasProduct(product)
+                                            ? navigateToCart()
+                                            : addToCart(product);
+                                    }
                                 }}
                             >
                                 {cartHasProduct(product ?? false)
@@ -82,9 +89,13 @@ export function SingleProduct() {
                             <button
                                 className="cart-item__button button button--secondary"
                                 onClick={() => {
-                                    wishlistHasItem(product)
-                                        ? removeFromWishlist(product._id)
-                                        : addToWishlist(product);
+                                    if (!isLoggedIn) {
+                                        navigate("/login");
+                                    } else {
+                                        wishlistHasItem(product)
+                                            ? removeFromWishlist(product._id)
+                                            : addToWishlist(product);
+                                    }
                                 }}
                             >
                                 {wishlistHasItem(product ?? false)
